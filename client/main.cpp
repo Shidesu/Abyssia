@@ -1,6 +1,7 @@
 #include "entity\Personnage.h"
 #include "graph\PersonnageGraph.h"
 #include "entity\Guerrier.h"
+#include "entity\Monster.h"
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -15,6 +16,7 @@ void testFonct(Personnage const& p)
 
 int main()
 {
+
     Guerrier Guerrier(10,10);
 
     testFonct(Guerrier);
