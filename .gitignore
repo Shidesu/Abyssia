@@ -30,3 +30,6 @@
 *.cbp
 *.depend
 *.layout
+
+# Headers used by SFML
+*.hpp
