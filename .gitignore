@@ -33,3 +33,4 @@
 
 # Headers used by SFML
 *.hpp
+*.inl
