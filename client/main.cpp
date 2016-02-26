@@ -1,34 +1,27 @@
 #include "entity\Personnage.h"
 #include "graph\PersonnageGraph.h"
+#include "entity\Guerrier.h"
 #include <cstdlib>
+#include <iostream>
+#include <string>
 #include <SFML/Graphics.hpp>
 
-using namespace sf;
+using namespace std;
+
+void testFonct(Personnage const& p)
+{
+    p.dispPersoType();
+}
 
 int main()
 {
-    RenderWindow window(VideoMode(800, 600), "Ma premiere fenetre SFML ! ");
-    Vector2f vect(150, 50);//on définit un vecteur de déplacement
-    CircleShape carre(80, 4); //la classe circleshape permet de faire des cubes car un cercle y est défini comme un polygône avec de nombreux sommets.
-    carre.move(vect);//on déplace le carré
-    carre.rotate(45);//on redresse le carré et oui.
-     carre.setFillColor(Color(100,250,50));
-    // Boucle principale
-    while (window.isOpen())
-    {
-        Event event;
+    Guerrier Guerrier(10,10);
 
-        while (window.pollEvent(event))
-        {
-            if (event.type == Event::Closed)
-                window.close();
-        }
+    testFonct(Guerrier);
 
-        // Affichage du carré
-        window.draw(carre);
+    Guerrier.getLife();
 
-        // Affichage de la fenętre ŕ l'écran
-        window.display();
-    }
-    return 0;
+    /*cout << test2.getPersoType();*/
+
+        return 0;
 }

@@ -5,6 +5,11 @@ Personnage::Personnage(int life, int mana) : m_life(life), m_mana(mana)
 {
 }
 
+Personnage::~Personnage()
+{
+
+}
+
 bool Personnage::isAlive()
 {
 	int actualLife = this->getLife();
@@ -53,4 +58,10 @@ int Personnage::getXP() const
 void Personnage::setXP(int XPQuantity)
 {
 	this->m_experience = XPQuantity;
+}
+
+
+void Personnage::dispPersoType() const
+{
+ std::cout << "Je suis un personnage";
 }

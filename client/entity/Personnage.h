@@ -6,6 +6,8 @@ Créée le 25/02/2016 par Kao
 
 Dernière modification : 25/02/2016 18h18
 */
+#ifndef DEF_PERSONNAGE
+#define DEF_PERSONNAGE
 #include <string>
 #include <iostream>
 
@@ -13,15 +15,16 @@ class Personnage
 {
 public:
 	Personnage(int life, int mana);
-	virtual bool isAlive();
+    virtual ~Personnage();
+	bool isAlive();
 	virtual void receiveDamages(int damages); //Les prototypes sont des prototypes dans tous les sens du terme. Certainement modifié dans le futur
-	virtual int getMana() const;//Accesseur d'affichage du mana
-    virtual void setMana(int manaQuantity);//Accesseur modificateur du mana
-	virtual int getLife() const;//Accesseur d'affichage de la vie
-	virtual void setLife(int lifeQuantity);//Accesseur modificateur de la vie
-	virtual int getXP() const;//Accesseur d'affichage de l'experience
-	virtual void setXP(int XPQuantity);//Accesseur modificateur de l'experience
-	virtual void getPersoType() const = 0; //Rend la classe abstraite et donne le type de personnage
+	int getMana() const;//Accesseur d'affichage du mana
+    void setMana(int manaQuantity);//Accesseur modificateur du mana
+	int getLife() const;//Accesseur d'affichage de la vie
+	void setLife(int lifeQuantity);//Accesseur modificateur de la vie
+	int getXP() const;//Accesseur d'affichage de l'experience
+	void setXP(int XPQuantity);//Accesseur modificateur de l'experience
+	virtual void dispPersoType() const = 0; //Rend la classe abstraite et donne le type de personnage
 //Fonction potentielle :
 //	bool isLevelUp(Personnage &personnage, ...);
 
@@ -35,3 +38,5 @@ protected:
 	std::string m_persoType;
 
 };
+
+#endif // DEF_PERSONNAGE

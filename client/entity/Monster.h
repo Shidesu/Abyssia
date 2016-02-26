@@ -7,10 +7,18 @@ Créée le 26/02/2016 par Kao
 Dernière modification : 26/02/2016 16h26
 */
 
+#include <string>
+#include <iostream>
+
 class Monster
 {
 public:
     Monster();
-    virtual ~Monster()
+    virtual ~Monster();
+    virtual std::string getMonsterType() const = 0;
+
+protected:
+std::string m_monsterType;
+
 
 };
