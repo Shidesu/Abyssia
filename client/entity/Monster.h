@@ -6,7 +6,8 @@ Créée le 26/02/2016 par Kao
 
 Dernière modification : 26/02/2016 16h26
 */
-
+#ifndef DEF_MONSTER
+#define DEF_MONSTER
 #include <string>
 #include <iostream>
 
@@ -22,3 +23,4 @@ std::string m_monsterType;
 
 
 };
+#endif

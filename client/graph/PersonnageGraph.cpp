@@ -7,3 +7,8 @@ PersonnageG::PersonnageG()
 PersonnageG::~PersonnageG()
 {
 }
+
+void createPersonnage()
+{
+
+}
