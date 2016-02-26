@@ -11,6 +11,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
 
 # Fortran module files
 *.mod
@@ -25,8 +26,3 @@
 *.exe
 *.out
 *.app
-
-#Code::Blocks
-*.cbp
-*.depend
-*.layout
