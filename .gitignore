@@ -25,13 +25,8 @@
 # Executables
 *.exe
 *.out
-<<<<<<< HEAD
-*.app
-=======
-*.app
 
-#Code::blocks
+# Code::blocks
 *.cbp
 *.depend
 *.layout
->>>>>>> 9ee55c9fdecd8ce7c152f538b1f9730f54b4db49
