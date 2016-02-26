@@ -1,5 +1,5 @@
-#include "client\entity\Personnage.h"
-#include "client\graph\PersonnageGraph.h"
+#include "entity\Personnage.h"
+#include "graph\PersonnageGraph.h"
 #include <cstdlib>
 #include <SFML/Graphics.hpp>
 
@@ -8,8 +8,10 @@ using namespace sf;
 int main()
 {
     RenderWindow window(VideoMode(800, 600), "Ma premiere fenetre SFML ! ");
-
+    Vector2f vect(150, 50);//on définit un vecteur de déplacement
     CircleShape carre(80, 4); //la classe circleshape permet de faire des cubes car un cercle y est défini comme un polygône avec de nombreux sommets.
+    carre.move(vect);//on déplace le carré
+    carre.rotate(45);//on redresse le carré et oui.
      carre.setFillColor(Color(100,250,50));
     // Boucle principale
     while (window.isOpen())

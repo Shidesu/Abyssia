@@ -1,7 +1,7 @@
 #include "Personnage.h"
 /* Les fonctions ci-dessous sont des esquisses de fonctions, et donc très loin d'être définitives.*/
 
-Personnage::Personnage()
+Personnage::Personnage(int life, int mana) : m_life(life), m_mana(mana)
 {
 }
 
