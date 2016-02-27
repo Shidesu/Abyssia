@@ -34,3 +34,5 @@
 # Headers used by SFML
 *.hpp
 *.inl
+SFML-2.3.2/*
+test/*

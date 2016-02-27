@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Guerrier::Guerrier(int life, int mana, int level, int experience) : Personnage::Personnage(life, mana, level, experience)
+Guerrier::Guerrier(int life, int mana, float armor, int level, int experience) : Personnage::Personnage(life, mana, level, experience), m_armor(armor)
 {
 
 }
@@ -12,21 +12,9 @@ void Guerrier::dispPersoType() const
     std::cout << "Je suis un guerrier !";
 }
 
-void Guerrier::receiveDamages(int &damages, int armor)
+void Guerrier::receiveDamages(float &damages)
 {
-
-    if(armor > damages && damages != 0)
-       {
-        damages = 1;
-       }
-    else if (damages == 0)
-    {
-        damages = 0;
-    }
-    else
-       {
-        damages = damages - armor;
-       }
+	damages = damages * pow(0.99, this->m_armor);
     Personnage::receiveDamages(damages);
 }
 

@@ -2,6 +2,7 @@
 #include "graph\PersonnageGraph.h"
 #include "entity\Guerrier.h"
 #include "entity\Monster.h"
+#include "entity\franz.h"
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -17,13 +18,14 @@ void testFonct(Personnage const& p)
 int main()
 {
 
-    Guerrier Guerrier(100);
-    while(Guerrier.isAlive()) //Attention dans l'étât actuel une attaque de 0 dégâts lance une boucle infinie :D
-    {
+    Guerrier Guerrier(100, 50);
+	Franz franzdebog("Franz", "Agressif", 200, 100, 10, 50, 100);
+   
     testFonct(Guerrier);
-    int degats = 0;
-    Guerrier.receiveDamages(degats , 10);
-    }
+    float degats = 0;
+    Guerrier.receiveDamages(degats);
+	cout << franzdebog.getMonsterType();
+
     cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
     /*cout << test2.getPersoType();*/
 
