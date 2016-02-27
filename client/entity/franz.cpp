@@ -12,3 +12,19 @@ std::string Franz::getMonsterType() const
 {
 	return this->m_monsterType;
 }
+
+float Franz::getArmor() const
+{
+	return this->m_armor;
+}
+
+void Franz::receiveDamages(float & damages)
+{
+	damages = damages * pow(0.99, this->getArmor());
+	Monster::receiveDamages(damages);
+}
+
+void Franz::attack(Entity & cible, float damages)
+{
+	cible.receiveDamages(damages);
+}

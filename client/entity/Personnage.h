@@ -8,13 +8,14 @@ Dernière modification : 25/02/2016 18h18
 */
 #ifndef DEF_PERSONNAGE
 #define DEF_PERSONNAGE
+#include "Entity.h"
 #include <string>
 #include <iostream>
 
-class Personnage
+class Personnage : public Entity
 {
 public:
-	Personnage(int life = 100, int mana = 100, int level = 1, int experience = 0);
+	Personnage(int life = 100, int mana = 100, int level = 1, int experience = 0, bool alive = true);
     virtual ~Personnage();
 	bool isAlive();
 	virtual void receiveDamages(int damages); //Les prototypes sont des prototypes dans tous les sens du terme. Certainement modifié dans le futur
@@ -30,11 +31,8 @@ public:
 
 
 protected:
-	int m_mana;
-	int m_life;
 	int m_experience;
 	int m_level;
-	bool m_alive;
 	std::string m_persoType;
 
 };

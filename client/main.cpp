@@ -20,14 +20,28 @@ int main()
 
     Guerrier Guerrier(100, 50);
 	Franz franzdebog("Franz", "Agressif", 200, 100, 10, 50, 100);
-   
+		   
     testFonct(Guerrier);
-    float degats = 0;
-    Guerrier.receiveDamages(degats);
-	cout << franzdebog.getMonsterType();
+	cout << franzdebog.getMonsterType() << endl;
 
-    cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
-    /*cout << test2.getPersoType();*/
+	cout << "Le combat commence !" << endl;
+
+	while (Guerrier.isAlive() && franzdebog.isAlive())
+	{		
+		Guerrier.attack(franzdebog, 1);
+
+		cout << "Combat toujours en cours !" << endl;
+
+		franzdebog.attack(Guerrier,3);
+
+		system("pause");
+
+	}
+
+	system("pause");
+
+   /* cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;*/
+    
 
         return 0;
 }
