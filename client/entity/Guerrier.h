@@ -6,8 +6,9 @@
 class Guerrier : public Personnage
 {
 public:
-    Guerrier(int life, int mana);
+    Guerrier(int life = 200, int mana = 50, int level = 1, int experience = 0 );
     virtual void dispPersoType() const;
+    virtual void receiveDamages(int &damages, int armor=10);
 
 protected:
 

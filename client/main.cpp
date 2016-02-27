@@ -17,12 +17,14 @@ void testFonct(Personnage const& p)
 int main()
 {
 
-    Guerrier Guerrier(10,10);
-
+    Guerrier Guerrier(100);
+    while(Guerrier.isAlive()) //Attention dans l'étât actuel une attaque de 0 dégâts lance une boucle infinie :D
+    {
     testFonct(Guerrier);
-
-    Guerrier.getLife();
-
+    int degats = 0;
+    Guerrier.receiveDamages(degats , 10);
+    }
+    cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
     /*cout << test2.getPersoType();*/
 
         return 0;

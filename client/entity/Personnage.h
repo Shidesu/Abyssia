@@ -14,7 +14,7 @@ Dernière modification : 25/02/2016 18h18
 class Personnage
 {
 public:
-	Personnage(int life, int mana);
+	Personnage(int life = 100, int mana = 100, int level = 1, int experience = 0);
     virtual ~Personnage();
 	bool isAlive();
 	virtual void receiveDamages(int damages); //Les prototypes sont des prototypes dans tous les sens du terme. Certainement modifié dans le futur
