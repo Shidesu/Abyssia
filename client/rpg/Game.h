@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../entity/Personnage.h"
 #include "../graph/PersonnageGraph.h"
 #include "../entity/Guerrier.h"
@@ -9,7 +11,6 @@
 #include <SFML/Graphics.hpp>
 #include "../json.h"
 
-#pragma once
 class Game
 {
 public:

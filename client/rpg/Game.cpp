@@ -14,7 +14,7 @@ Game::~Game()
 void Game::start() 
 {
 	// A commenter lors de la releases
-	this->start();
+	this->test();
 }
 
 void Game::test() {
