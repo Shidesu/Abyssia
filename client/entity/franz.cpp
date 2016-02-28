@@ -16,7 +16,6 @@ std::string Franz::getMonsterType() const
 void Franz::receiveDamages(float & damages)
 {
 	damages = damages * pow(0.99, this->getArmor());
-
 	Monster::receiveDamages(damages);
 }
 

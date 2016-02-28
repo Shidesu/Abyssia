@@ -15,9 +15,7 @@ void Guerrier::dispPersoType() const
 void Guerrier::receiveDamages(float &damages)
 {
 		
-	damages = damages * pow(0.99, this->getArmor());
-
-    Personnage::receiveDamages(damages);
+	Personnage::receiveDamages(damages);
 }
 
 float Guerrier::getArmor() const

@@ -28,35 +28,10 @@ bool Personnage::isAlive()
 
 }
 
-void Personnage::receiveDamages(int damages)
+void Personnage::receiveDamages(float damages)
 {
-    this->m_life = this->m_life - damages;
-    if(this->m_life <= 0)
-    {
-        this->setLife(0);
-        this->m_alive = false;
-    }
+	Entity::receiveDamages(damages);
     std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;
-}
-
-int Personnage::getMana() const
-{
-	return this->m_mana;
-}
-
-void Personnage::setMana(int manaQuantity)
-{
-	this->m_mana = manaQuantity;
-}
-
-int Personnage::getLife() const
-{
-	return this->m_life;
-}
-
-void Personnage::setLife(int lifeQuantity)
-{
-	this->m_life = lifeQuantity;
 }
 
 int Personnage::getXP() const

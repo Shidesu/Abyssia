@@ -18,11 +18,7 @@ public:
 	Personnage(int life = 100, int mana = 100, float armor = 10, int level = 1, int experience = 0, bool alive = true);
     virtual ~Personnage();
 	bool isAlive();
-	virtual void receiveDamages(int damages); //Les prototypes sont des prototypes dans tous les sens du terme. Certainement modifié dans le futur
-	int getMana() const;//Accesseur d'affichage du mana
-    void setMana(int manaQuantity);//Accesseur modificateur du mana
-	int getLife() const;//Accesseur d'affichage de la vie
-	void setLife(int lifeQuantity);//Accesseur modificateur de la vie
+	virtual void receiveDamages(float damages); //Les prototypes sont des prototypes dans tous les sens du terme. Certainement modifié dans le futur
 	int getXP() const;//Accesseur d'affichage de l'experience
 	void setXP(int XPQuantity);//Accesseur modificateur de l'experience
 	virtual void dispPersoType() const = 0; //Rend la classe abstraite et donne le type de personnage
@@ -34,7 +30,6 @@ protected:
 	int m_experience;
 	int m_level;
 	std::string m_persoType;
-	float m_armor;
 
 };
 
