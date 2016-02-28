@@ -51,7 +51,6 @@ bool Monster::isAlive()
 	{
 		this->setLife(0);
 		this->m_alive = false;
-		std::cout << "Vous avez gagné le combat !" << endl;
 		return this->m_alive;
 	}
 	else
