@@ -10,3 +10,7 @@ Renderable::Renderable()
 Renderable::~Renderable()
 {
 }
+
+void Renderable::render(Renderable &element) {
+
+}

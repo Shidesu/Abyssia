@@ -8,8 +8,8 @@ public:
 	~Renderable();
 
 	/*
-		Render the object in the specified world
+		Render the object in the specified element
 	*/
-	virtual void render(World world) = 0;
+	virtual void render(Renderable &element);
 };
 

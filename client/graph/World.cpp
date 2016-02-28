@@ -1,4 +1,4 @@
-#include "..\graph\World.h"
+#include "World.h"
 
 
 
@@ -11,7 +11,7 @@ World::~World()
 {
 }
 
-void World::render(World world) {
+void World::render(Renderable &element) {
 	// Can change this in the future
 
 }

@@ -7,6 +7,6 @@ public:
 	World();
 	~World();
 
-	void render(World world);
+	void render(Renderable &element);
 };
 
