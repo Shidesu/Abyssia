@@ -1,25 +1,20 @@
-#include "entity\Personnage.h"
-#include "graph\PersonnageGraph.h"
-#include "entity\Guerrier.h"
-#include "entity\Monster.h"
-#include "entity\franz.h"
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <SFML/Graphics.hpp>
-#include "json.h"
+#include "rpg/Game.h"
 
 using namespace std;
-using namespace nlohmann;
-
+//using namespace nlohmann;
+/*
 void testFonct(Personnage const& p)
 {
     p.dispPersoType();
 }
-
+*/
 int main()
 {
+	// Les deux lignes nécessaire
+	Game* game = new Game();
+	game->start();
 
+	/*
 	// create an empty structure (null)
 	json j;
 
@@ -86,8 +81,9 @@ int main()
 
 	system("pause");
 
-   /* cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;*/
+    cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
     
+	*/
 
         return 0;
 }
