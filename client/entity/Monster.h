@@ -19,6 +19,7 @@ public:
     virtual ~Monster();
     virtual std::string getMonsterType() const = 0;
 	virtual void receiveDamages(float & damages);
+	virtual float getArmor() const;
 	virtual int getLife() const;
 	virtual void setLife(int lifeQuantity);
 	virtual bool isAlive();
@@ -28,7 +29,6 @@ std::string m_monsterType;
 std::string m_monsterName;
 int m_experienceGiven;
 int m_goldGiven;
-float m_armor;
 
 
 };

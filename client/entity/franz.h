@@ -10,7 +10,6 @@ public:
 	virtual ~Franz();
 	std::string getMonsterType() const;
 	virtual void receiveDamages(float &damages);
-	virtual float getArmor() const;
 	void attack(Entity &cible, float damages = 25);
 
 protected:

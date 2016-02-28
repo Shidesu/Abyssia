@@ -18,8 +18,8 @@ void testFonct(Personnage const& p)
 int main()
 {
 
-    Guerrier Guerrier(100, 50);
-	Franz franzdebog("Franz", "Agressif", 200, 100, 10, 50, 100);
+	Guerrier Guerrier(100, 50);
+	Franz franzdebog("Franz", "Agressif", 100, 100, 0, 50, 100);
 		   
     testFonct(Guerrier);
 	cout << franzdebog.getMonsterType() << endl;
@@ -28,11 +28,11 @@ int main()
 
 	while (Guerrier.isAlive() && franzdebog.isAlive())
 	{		
-		Guerrier.attack(franzdebog, 1);
+		Guerrier.attack(franzdebog, 5);
 
 		cout << "Combat toujours en cours !" << endl;
 
-		franzdebog.attack(Guerrier,3);
+		franzdebog.attack(Guerrier, 5);
 
 		system("pause");
 

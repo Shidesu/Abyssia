@@ -1,6 +1,6 @@
 #include "franz.h"
 
-Franz::Franz(std::string franzType, std::string franzName, int life, int mana, float armor, int XPGiven, int goldGiven) : Monster(franzType, franzName)
+Franz::Franz(std::string franzType, std::string franzName, int life, int mana, float armor, int XPGiven, int goldGiven) : Monster(franzType, franzName, life, mana, armor, XPGiven, goldGiven)
 {
 }
 
@@ -13,14 +13,10 @@ std::string Franz::getMonsterType() const
 	return this->m_monsterType;
 }
 
-float Franz::getArmor() const
-{
-	return this->m_armor;
-}
-
 void Franz::receiveDamages(float & damages)
 {
 	damages = damages * pow(0.99, this->getArmor());
+
 	Monster::receiveDamages(damages);
 }
 

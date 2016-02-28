@@ -3,7 +3,7 @@
 using namespace std;
 
 Monster::Monster(std::string monsterType, std::string monsterName, int life, int mana, float armor, int XPGiven, int goldGiven) : 
-m_monsterType(monsterType), m_monsterName(monsterName), Entity(life, mana), m_armor(armor),m_experienceGiven(XPGiven), m_goldGiven(goldGiven)
+m_monsterType(monsterType), m_monsterName(monsterName), Entity(life, mana, armor), m_experienceGiven(XPGiven), m_goldGiven(goldGiven)
 {
 
 }
@@ -29,6 +29,11 @@ void Monster::receiveDamages(float & damages)
 	std::cout << "Il reste " << this->getLife() << " points de vie a " << getMonsterType() << std::endl;
 }
 
+float Monster::getArmor() const
+{
+	return this->m_armor;
+}
+
 int Monster::getLife() const
 {
 	return this->m_life;
@@ -46,6 +51,7 @@ bool Monster::isAlive()
 	{
 		this->setLife(0);
 		this->m_alive = false;
+		std::cout << "Vous avez gagné le combat !" << endl;
 		return this->m_alive;
 	}
 	else

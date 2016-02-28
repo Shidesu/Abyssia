@@ -15,7 +15,6 @@ public:
 	void attack(Entity &cible, float damages = 50);
 
 protected:
-	float m_armor;
 
 };
 #endif
