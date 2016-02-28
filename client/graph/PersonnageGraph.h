@@ -5,8 +5,8 @@ Créée le 25/02/2016 par Kao
 
 Dernière modification : 25/02/2016 18h18
 */
-#ifndef DEF_PERSONNAGEGRAPH
-#define DEF_PERSONNAGEGRAPH
+#pragma once
+
 #include <string>
 #include <iostream>
 
@@ -21,4 +21,3 @@ public:
 protected:
 	//Je sais pas encore les variables dont on aura besoin dooooonc voilà.
 };
-#endif

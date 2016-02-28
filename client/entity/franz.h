@@ -1,5 +1,4 @@
-#ifndef DEF_FRANZ
-#define DEF_FRANZ
+#pragma once
 
 #include "Monster.h"
 
@@ -15,5 +14,3 @@ public:
 protected:
 
 };
-
-#endif

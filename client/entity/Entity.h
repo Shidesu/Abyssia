@@ -1,5 +1,4 @@
-#ifndef DEF_ENTITY
-#define DEF_ENTITY
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -25,6 +24,3 @@ protected:
 	float m_armor;
 
 };
-
-
-#endif
