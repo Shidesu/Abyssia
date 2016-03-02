@@ -2,33 +2,22 @@
 
 using namespace std;
 
-Guerrier::Guerrier(int life, int mana, float armor, int level, int experience) : Personnage::Personnage(life, mana, armor, level, experience)
+Guerrier::Guerrier(int life, int mana, int armor, int level, int experience) : Personnage::Personnage(life, mana, armor, level, experience)
 {
 
 }
 
 void Guerrier::dispPersoType() const
 {
-	std::cout << "Je suis un guerrier !" << endl;
+	// std::cout << "Je suis un guerrier !" << endl;
 }
 
-void Guerrier::receiveDamages(float &damages)
-{
-		
+void Guerrier::receiveDamages(int damages)
+{	
 	Personnage::receiveDamages(damages);
 }
 
-float Guerrier::getArmor() const
-{
-	return this->m_armor;
-}
-
-void Guerrier::setArmor(float newArmorValue)
-{
-	this->m_armor = newArmorValue;
-}
-
-void Guerrier::attack(Entity & cible, float damages)
+void Guerrier::attack(Entity & cible, int damages)
 {
 	cible.receiveDamages(damages);
 }

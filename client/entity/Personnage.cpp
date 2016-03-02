@@ -1,7 +1,7 @@
 #include "Personnage.h"
 /* Les fonctions ci-dessous sont des esquisses de fonctions, et donc très loin d'être définitives.*/
 
-Personnage::Personnage(int life, int mana, float armor, int level, int experience, bool alive) : Entity(life, mana, armor, alive), m_level(level), m_experience(experience)
+Personnage::Personnage(int life, int mana, int armor, int level, int experience, bool alive) : Entity(life, mana, armor, alive), level(level), experience(experience)
 {
 }
 
@@ -17,31 +17,31 @@ bool Personnage::isAlive()
 		{
 			this->setLife(0);
 			std::cout << "Vous avez perdu..." << std::endl;
-			this->m_alive = false;
-			return this->m_alive;
+			this->alive = false;
+			return this->alive;
 		}
 		else
 		{
-			this->m_alive = true;
-			return this->m_alive;
+			this->alive = true;
+			return this->alive;
 		}
 
 }
 
-void Personnage::receiveDamages(float damages)
+void Personnage::receiveDamages(int damages)
 {
 	Entity::receiveDamages(damages);
-    std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;
+    // std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;
 }
 
-int Personnage::getXP() const
+int Personnage::getExperience() const
 {
-	return this->m_experience;
+	return this->experience;
 }
 
-void Personnage::setXP(int XPQuantity)
+void Personnage::setExperience(int experience)
 {
-	this->m_experience = XPQuantity;
+	this->experience = experience;
 }
 
 

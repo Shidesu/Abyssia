@@ -6,8 +6,7 @@ Créée le 25/02/2016 par Kao
 
 Dernière modification : 25/02/2016 18h18
 */
-#ifndef DEF_PERSONNAGE
-#define DEF_PERSONNAGE
+#pragma once
 #include "Entity.h"
 #include <string>
 #include <iostream>
@@ -15,22 +14,20 @@ Dernière modification : 25/02/2016 18h18
 class Personnage : public Entity
 {
 public:
-	Personnage(int life = 100, int mana = 100, float armor = 10, int level = 1, int experience = 0, bool alive = true);
+	Personnage(int life = 100, int mana = 100, int armor = 10, int level = 1, int experience = 0, bool alive = true);
     virtual ~Personnage();
 	bool isAlive();
-	virtual void receiveDamages(float damages); //Les prototypes sont des prototypes dans tous les sens du terme. Certainement modifié dans le futur
-	int getXP() const;//Accesseur d'affichage de l'experience
-	void setXP(int XPQuantity);//Accesseur modificateur de l'experience
+	virtual void receiveDamages(int damages); //Les prototypes sont des prototypes dans tous les sens du terme. Certainement modifié dans le futur
+	int getExperience() const;//Accesseur d'affichage de l'experience
+	void setExperience(int experience);//Accesseur modificateur de l'experience
 	virtual void dispPersoType() const = 0; //Rend la classe abstraite et donne le type de personnage
 //Fonction potentielle :
 //	bool isLevelUp(Personnage &personnage, ...);
 
 
 protected:
-	int m_experience;
-	int m_level;
-	std::string m_persoType;
+	int experience;
+	int level;
+	std::string persoType;
 
 };
-
-#endif // DEF_PERSONNAGE
