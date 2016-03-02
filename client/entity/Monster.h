@@ -17,6 +17,7 @@ class Monster : public Entity
 public:
     Monster(std::string monsterType, std::string monsterName, int life = 100, int mana = 100, int armor = 22, int XPGiven = 20, int goldGiven = 50);
     virtual ~Monster();
+	virtual std::string getMonsterName() const;
     virtual std::string getMonsterType() const = 0;
 	virtual void receiveDamages(int damages);
 	virtual bool isAlive();

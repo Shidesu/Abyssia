@@ -9,15 +9,11 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
-<<<<<<< HEAD
 // The different window parameters
 #define WINDOW_HEIGHT 800
 #define WINDOW_WIDTH 900
 
-=======
-
 #pragma once
->>>>>>> 0e540e9283d334d3142c29ca503ee2feb13f7909
 class Game
 {
 public:
@@ -40,10 +36,12 @@ public:
 	 */
 	sf::RenderWindow* getWindow() const;
 
-protected:
-	static Game *instance;
-	sf::RenderWindow *window;
+	
 
+protected:
+
+	sf::RenderWindow *window;
+	static Game *instance;
 	const int window_height = WINDOW_HEIGHT;
 	const int window_width = WINDOW_WIDTH;
 

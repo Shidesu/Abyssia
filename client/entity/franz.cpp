@@ -16,6 +16,7 @@ std::string Franz::getMonsterType() const
 void Franz::receiveDamages(int damages)
 {
 	Monster::receiveDamages(damages);
+	std::cout << "Il reste " << this->getLife() << " points de vie à " << this->getMonsterType() << " " << this->getMonsterName() <<"." << std::endl;
 }
 
 void Franz::attack(Entity & cible, int damages)

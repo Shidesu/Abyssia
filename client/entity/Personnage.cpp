@@ -31,7 +31,7 @@ bool Personnage::isAlive()
 void Personnage::receiveDamages(int damages)
 {
 	Entity::receiveDamages(damages);
-    // std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;
+     std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;
 }
 
 int Personnage::getExperience() const

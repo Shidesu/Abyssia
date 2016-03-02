@@ -8,6 +8,7 @@ void testFonct(Personnage const& p)
     p.dispPersoType();
 }
 */
+
 int main()
 {
 	// Les deux lignes nécessaire

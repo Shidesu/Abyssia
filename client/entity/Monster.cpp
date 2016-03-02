@@ -13,6 +13,11 @@ Monster::~Monster()
 
 }
 
+string Monster::getMonsterName() const
+{
+	return this->monsterName;
+}
+
 string Monster::getMonsterType() const
 {
     return this->monsterType;
@@ -30,6 +35,7 @@ bool Monster::isAlive()
 	{
 		this->setLife(0);
 		this->alive = false;
+		cout << "Combat gagné !" << endl;
 		return this->alive;
 	}
 	else
