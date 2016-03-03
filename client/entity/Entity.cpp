@@ -11,14 +11,23 @@ Entity::~Entity()
 
 void Entity::receiveDamages(Damages damages)
 {
-	/*damages = (int)round(double(damages) * pow(0.99, this->getArmor()));
+	
+	int* damagesReceived = new int;
+	
+	if (damages.getTypeDamages() == Damages::DamagesType::Physical)
+	{
+	 *damagesReceived = damages.getDamages() * pow(0.99, this->getArmor());
+	}
 
-	this->setLife( this->getLife() - damages);
+	this->setLife(this->getLife() - *damagesReceived);
 	if (this->getLife() <= 0)
 	{
 		this->setLife(0);
 		this->alive = false;
-	}*/
+	}
+	/*damages = (int)round(double(damages) * pow(0.99, this->getArmor()));
+
+	*/
 }
 
 int Entity::getMana() const

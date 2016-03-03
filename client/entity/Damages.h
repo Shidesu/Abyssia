@@ -13,6 +13,7 @@ public:
 
 	Damages(int damages, Entity* damagesSender, DamagesType typeDamages );
 	int virtual getDamages();
+	DamagesType getTypeDamages();
 
 	
 

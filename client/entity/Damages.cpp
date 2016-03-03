@@ -8,3 +8,8 @@ int Damages::getDamages()
 {
 	return damages;
 }
+
+Damages::DamagesType Damages::getTypeDamages()
+{
+	return this->typeDamages;
+}

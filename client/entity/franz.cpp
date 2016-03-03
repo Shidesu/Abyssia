@@ -13,12 +13,6 @@ std::string Franz::getMonsterType() const
 	return this->monsterType;
 }
 
-void Franz::receiveDamages(Damages damages)
-{
-	Monster::receiveDamages(damages);
-	std::cout << "Il reste " << this->getLife() << " points de vie à " << this->getMonsterType() << " " << this->getMonsterName() <<"." << std::endl;
-}
-
 void Franz::attack(Entity & cible, int damages, Damages::DamagesType typeDegats)
 {
 	Damages damagesT(damages, this, typeDegats);

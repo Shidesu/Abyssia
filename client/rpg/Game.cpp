@@ -49,6 +49,8 @@ void Game::start()
 void Game::test() 
 {
 	
+	Guerrier testGuer(100);
+	
 	/*Guerrier Guerrier(100);
 	Franz franzdebog("Franz", "Agressif", 100, 100, 0, 50, 100);
 

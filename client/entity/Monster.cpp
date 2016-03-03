@@ -26,6 +26,7 @@ string Monster::getMonsterType() const
 void Monster::receiveDamages(Damages damages)
 {
 	Entity::receiveDamages(damages);
+	std::cout << "Il reste " << this->getLife() << " points de vie à " << this->getMonsterType() << " " << this->getMonsterName() << "." << std::endl;
 }
 
 bool Monster::isAlive()

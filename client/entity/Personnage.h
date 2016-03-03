@@ -22,6 +22,7 @@ public:
 	int getExperience() const;//Accesseur d'affichage de l'experience
 	void setExperience(int experience);//Accesseur modificateur de l'experience
 	virtual void dispPersoType() const = 0; //Rend la classe abstraite et donne le type de personnage
+	virtual void attack(Entity & cible, int damages, Damages::DamagesType typeDegats) = 0;
 //Fonction potentielle :
 //	bool isLevelUp(Personnage &personnage, ...);
 
