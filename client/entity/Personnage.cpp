@@ -1,13 +1,18 @@
 #include "Personnage.h"
 /* Les fonctions ci-dessous sont des esquisses de fonctions, et donc très loin d'être définitives.*/
 
-Personnage::Personnage(int life, int mana, int armor, int level, int experience, bool alive) : Entity(life, mana, armor, alive), level(level), experience(experience)
+Personnage::Personnage(int life, int mana, int armor, int resistance, int level, int experience, bool alive) : Entity(life, mana, armor, resistance, alive), level(level), experience(experience)
 {
 }
 
 Personnage::~Personnage()
 {
 
+}
+
+void Personnage::attack(Entity & cible, int const& damages, Damages::DamagesType typeDegats)
+{
+	std::cout << "test";
 }
 
 bool Personnage::isAlive()
@@ -45,6 +50,6 @@ void Personnage::setExperience(int experience)
 }
 
 
-void Personnage::dispPersoType() const
+void Personnage::dispPersoType()
 {
 }

@@ -18,7 +18,7 @@ Game::Game()
 
 void Game::initWindow() 
 {
-	this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
+	/*this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
 
 	// A modifier plus tard
 	while (this->window->isOpen())
@@ -32,7 +32,7 @@ void Game::initWindow()
 
 		this->window->clear();
 		this->window->display();
-	}
+	}*/
 }
 
 
@@ -48,11 +48,8 @@ void Game::start()
 
 void Game::test() 
 {
-	
-	Guerrier testGuer(100);
-	
-	/*Guerrier Guerrier(100);
-	Franz franzdebog("Franz", "Agressif", 100, 100, 0, 50, 100);
+	Guerrier Guerrier(100);
+	Franz franzdebog("Franz", "Agressif", 100, 100, 20, 50, 100);
 
 	Guerrier.dispPersoType();
 
@@ -62,11 +59,13 @@ void Game::test()
 
 	while (Guerrier.isAlive() && franzdebog.isAlive())
 	{
-		Guerrier.attack(franzdebog, 5);
+		Guerrier.attack(franzdebog, 5, Damages::DamagesType::Brute);
+		Guerrier.attack(franzdebog, 5, Damages::DamagesType::Magic);
+		Guerrier.attack(franzdebog, 5, Damages::DamagesType::Physical);
 
 		cout << "Combat toujours en cours !" << endl;
 
-		franzdebog.attack(Guerrier, 5);
+		franzdebog.attack(Guerrier, 5, Damages::DamagesType::Physical);
 
 		system("pause");
 
@@ -75,7 +74,7 @@ void Game::test()
 	system("pause");
 
 	cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
-*/}
+}
 
 Game* Game::getInstance() 
 {

@@ -1,7 +1,7 @@
 #include "Entity.h"
 #include "Damages.h"
 
-Entity::Entity(int life, int mana, int armor, bool alive) : life(life), mana(mana), armor(armor), alive(alive)
+Entity::Entity(int life, int mana, int armor, int resistance, bool alive) : life(life), mana(mana), armor(armor), resistance(resistance), alive(alive)
 {
 }
 
@@ -9,17 +9,26 @@ Entity::~Entity()
 {
 }
 
+void Entity::attack()
+{
+}
+
 void Entity::receiveDamages(Damages damages)
 {
 	
-	int* damagesReceived = new int;
+	int* damagesReceived = new int(damages.getDamages());
+
 	
 	if (damages.getTypeDamages() == Damages::DamagesType::Physical)
 	{
-	 *damagesReceived = damages.getDamages() * pow(0.99, this->getArmor());
+		*damagesReceived = *damagesReceived * pow(0.99, this->getArmor());
 	}
-
-	this->setLife(this->getLife() - *damagesReceived);
+	else if (damages.getTypeDamages() == Damages::DamagesType::Magic)
+	{
+		*damagesReceived = *damagesReceived * pow(0.99, this->getMagicResistance());
+	}
+		
+		this->setLife(this->getLife() - *damagesReceived);
 	if (this->getLife() <= 0)
 	{
 		this->setLife(0);
@@ -58,4 +67,14 @@ int Entity::getArmor() const
 void Entity::setArmor(int armor)
 {
 	this->armor = armor;
+}
+
+int Entity::getMagicResistance() const
+{
+	return this->resistance;
+}
+
+void Entity::setMagicResistance(int magicResistance)
+{
+	this->resistance = magicResistance;
 }
