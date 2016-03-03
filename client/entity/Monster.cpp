@@ -36,7 +36,8 @@ bool Monster::isAlive()
 	{
 		this->setLife(0);
 		this->alive = false;
-		cout << "Combat gagné !" << endl;
+		cout << "Vous avez tué " << this->getMonsterType() << " " << this->getMonsterName() << " !!!" << endl;
+		cout << "Vous gagnez " << this->experienceGiven << " expérience et " << this->goldGiven << " pièces d'or !" << endl << "Bien joué ;)" << endl;
 		return this->alive;
 	}
 	else

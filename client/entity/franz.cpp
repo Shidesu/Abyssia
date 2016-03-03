@@ -15,7 +15,10 @@ std::string Franz::getMonsterType() const
 
 void Franz::attack(Entity & cible, int damages, Damages::DamagesType typeDegats)
 {
-	Damages damagesT(damages, this, typeDegats);
-	//Damages damages(damages, this, Damages::DamagesType::Physical);
-	cible.receiveDamages(damagesT);
+	if (this->isAlive())
+	{
+		Damages damagesT(damages, this, typeDegats);
+		//Damages damages(damages, this, Damages::DamagesType::Physical);
+		cible.receiveDamages(damagesT);
+	}
 }

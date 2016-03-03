@@ -18,7 +18,7 @@ Game::Game()
 
 void Game::initWindow() 
 {
-	/*this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
+	this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
 
 	// A modifier plus tard
 	while (this->window->isOpen())
@@ -32,7 +32,7 @@ void Game::initWindow()
 
 		this->window->clear();
 		this->window->display();
-	}*/
+	}
 }
 
 
@@ -49,19 +49,25 @@ void Game::start()
 void Game::test() 
 {
 	Guerrier Guerrier(100);
-	Franz franzdebog("Franz", "Agressif", 100, 100, 20, 50, 100);
+	Franz franzdebog("Franzdebog", "Agressif", 100, 100, 20, 50, 100);
+	Franz franz2("Franz", "ini", 100, 100, 20, 50, 100 );
 
 	Guerrier.dispPersoType();
 
 	cout << franzdebog.getMonsterType() << endl;
+	cout << franzdebog.getMonsterType() << endl;
+
+	cout << "Deux Franz agressifs viennent de se jeter sur vous !!!" << endl;
 
 	cout << "Le combat commence !" << endl;
 
-	while (Guerrier.isAlive() && franzdebog.isAlive())
+	while (Guerrier.isAlive() && franzdebog.isAlive() | franz2.isAlive())
 	{
-		Guerrier.attack(franzdebog, 5, Damages::DamagesType::Brute);
-		Guerrier.attack(franzdebog, 5, Damages::DamagesType::Magic);
-		Guerrier.attack(franzdebog, 5, Damages::DamagesType::Physical);
+		Guerrier.attack(franzdebog, 22, Damages::DamagesType::Brute);
+		franzdebog.attack(Guerrier, 5, Damages::DamagesType::Physical);
+		Guerrier.attack(franz2, 11, Damages::DamagesType::Magic);
+		franz2.attack(Guerrier, 10, Damages::DamagesType::Physical);
+		Guerrier.attack(franz2, 10, Damages::DamagesType::Physical);
 
 		cout << "Combat toujours en cours !" << endl;
 
