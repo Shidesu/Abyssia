@@ -11,6 +11,7 @@ Dernière modification : 26/02/2016 16h26
 #include "Entity.h"
 #include <string>
 #include <iostream>
+#include "Damages.h"
 
 class Monster : public Entity
 {
@@ -19,7 +20,7 @@ public:
     virtual ~Monster();
 	virtual std::string getMonsterName() const;
     virtual std::string getMonsterType() const = 0;
-	virtual void receiveDamages(int damages);
+	virtual void receiveDamages(Damages damages);
 	virtual bool isAlive();
 
 protected:

@@ -49,7 +49,7 @@ void Game::start()
 void Game::test() 
 {
 	
-	Guerrier Guerrier(100);
+	/*Guerrier Guerrier(100);
 	Franz franzdebog("Franz", "Agressif", 100, 100, 0, 50, 100);
 
 	Guerrier.dispPersoType();
@@ -73,7 +73,7 @@ void Game::test()
 	system("pause");
 
 	cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
-}
+*/}
 
 Game* Game::getInstance() 
 {

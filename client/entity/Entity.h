@@ -4,13 +4,15 @@
 #include <iostream>
 #include <math.h>
 
+class Damages;
+
 class Entity
 {
 public:
 	Entity(int life, int mana, int armor, bool alive = true);
 	virtual ~Entity();
 	virtual void attack(Entity &cible, int damages) = 0;
-	virtual void receiveDamages(int damages);
+	virtual void receiveDamages(Damages damages);
 	int getMana() const;//Accesseur d'affichage du mana
 	void setMana(int manaQuantity);//Accesseur modificateur du mana
 	int getLife() const;//Accesseur d'affichage de la vie

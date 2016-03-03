@@ -28,7 +28,7 @@ bool Personnage::isAlive()
 
 }
 
-void Personnage::receiveDamages(int damages)
+void Personnage::receiveDamages(Damages damages)
 {
 	Entity::receiveDamages(damages);
      std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;

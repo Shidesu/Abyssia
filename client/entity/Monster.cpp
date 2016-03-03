@@ -23,7 +23,7 @@ string Monster::getMonsterType() const
     return this->monsterType;
 }
 
-void Monster::receiveDamages(int damages)
+void Monster::receiveDamages(Damages damages)
 {
 	Entity::receiveDamages(damages);
 }

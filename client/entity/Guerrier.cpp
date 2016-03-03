@@ -9,16 +9,13 @@ Guerrier::Guerrier(int life, int mana, int armor, int level, int experience) : P
 
 void Guerrier::dispPersoType() const
 {
-	// std::cout << "Je suis un guerrier !" << endl;
+	std::cout << "Je suis un guerrier !" << endl;
 }
 
-void Guerrier::receiveDamages(int damages)
-{	
-	Personnage::receiveDamages(damages);
-}
-
-void Guerrier::attack(Entity & cible, int damages)
+void Guerrier::attack(Entity & cible, int damages, Damages::DamagesType typeDegats)
 {
-	cible.receiveDamages(damages);
+	Damages damagesT(damages, this, typeDegats);
+	//Damages damages(damages, this, Damages::DamagesType::Physical);
+	cible.receiveDamages(damagesT);
 }
 
