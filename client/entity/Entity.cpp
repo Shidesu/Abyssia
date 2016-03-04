@@ -21,11 +21,11 @@ void Entity::receiveDamages(Damages damages)
 	
 	if (damages.getTypeDamages() == Damages::DamagesType::Physical)
 	{
-		*damagesReceived = *damagesReceived * pow(0.99, this->getArmor());
+		*damagesReceived = (int)round(*damagesReceived * pow(0.99, this->getArmor()));
 	}
 	else if (damages.getTypeDamages() == Damages::DamagesType::Magic)
 	{
-		*damagesReceived = *damagesReceived * pow(0.99, this->getMagicResistance());
+		*damagesReceived = (int)round(*damagesReceived * pow(0.99, this->getMagicResistance()));
 	}
 		
 		this->setLife(this->getLife() - *damagesReceived);
