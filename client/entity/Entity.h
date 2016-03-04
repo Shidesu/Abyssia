@@ -3,13 +3,21 @@
 #include <string>
 #include <iostream>
 #include <math.h>
+#include "Fight.h"
 
+class Fight;
 class Damages;
 
 class Entity
 {
 public:
-	Entity(int life, int mana, int armor, int resistance, bool alive = true);
+	
+	typedef enum class entityType
+	{
+		Playable, PNJ, Ally, Ennemy
+	} entityType;
+	
+	Entity(int life, int mana, int armor, int resistance, entityType unitType, bool alive = true);
 	virtual ~Entity() = 0;
 	virtual void attack();
 	virtual void receiveDamages(Damages damages);
@@ -28,5 +36,6 @@ protected:
 	bool alive;
 	int armor;
 	int resistance;
+	entityType unitType;
 
 };

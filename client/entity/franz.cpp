@@ -1,6 +1,6 @@
 #include "franz.h"
 
-Franz::Franz(std::string franzType, std::string franzName, int life, int mana, int armor, int resistance, int XPGiven, int goldGiven) : Monster(franzType, franzName, life, mana, armor, resistance, XPGiven, goldGiven)
+Franz::Franz(std::string franzType, std::string franzName, int life, int mana, int armor, int resistance, entityType unitType, int XPGiven, int goldGiven) : Monster(franzType, franzName, life, mana, armor, resistance, unitType, XPGiven, goldGiven)
 {
 }
 

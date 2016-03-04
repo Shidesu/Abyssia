@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Guerrier::Guerrier(int life, int mana, int armor, int level, int experience) : Personnage::Personnage(life, mana, armor, level, experience)
+Guerrier::Guerrier(int life, int mana, int armor, entityType unitType, int level, int experience) : Personnage::Personnage(life, mana, armor, unitType, level, experience)
 {
 
 }

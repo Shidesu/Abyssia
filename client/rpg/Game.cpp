@@ -49,8 +49,8 @@ void Game::start()
 void Game::test() 
 {
 	Guerrier Guerrier(100);
-	Franz franzdebog("Franzdebog", "Agressif", 100, 100, 20, 50, 100);
-	Franz franz2("Franz", "ini", 100, 100, 20, 50, 100 );
+	Franz franzdebog("Franzdebog", "Agressif", 100, 100, 20, 50, Entity::entityType::Ennemy, 100);
+	Franz franz2("Franz", "ini", 100, 100, 20, 50, Entity::entityType::Ennemy, 100 );
 
 	Guerrier.dispPersoType();
 

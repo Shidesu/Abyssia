@@ -2,8 +2,8 @@
 
 using namespace std;
 
-Monster::Monster(std::string monsterType, std::string monsterName, int life, int mana, int armor, int resistance, int XPGiven, int goldGiven) : 
-monsterType(monsterType), monsterName(monsterName), Entity(life, mana, armor, resistance), experienceGiven(XPGiven), goldGiven(goldGiven)
+Monster::Monster(std::string monsterType, std::string monsterName, int life, int mana, int armor, int resistance, entityType unitType, int XPGiven, int goldGiven) : 
+monsterType(monsterType), monsterName(monsterName), Entity(life, mana, armor, resistance, unitType), experienceGiven(XPGiven), goldGiven(goldGiven)
 {
 
 }
