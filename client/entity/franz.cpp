@@ -20,5 +20,6 @@ void Franz::attack(Entity & cible, int damages, Damages::DamagesType typeDegats)
 		Damages damagesT(damages, this, typeDegats);
 		//Damages damages(damages, this, Damages::DamagesType::Physical);
 		cible.receiveDamages(damagesT);
+		//je suis le test visual studio #git
 	}
 }
