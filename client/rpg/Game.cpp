@@ -19,6 +19,16 @@ Game::Game()
 void Game::initWindow() 
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
+	this->window->setKeyRepeatEnabled(true);
+	sf::Texture mip;
+	if (!mip.loadFromFile("mario.gif"))
+	{
+		// erreur...
+	}
+
+	sf::Sprite mario;
+
+	mario.setTexture(mip);
 
 	// A modifier plus tard
 	while (this->window->isOpen())
@@ -28,9 +38,44 @@ void Game::initWindow()
 		{
 			if (event.type == sf::Event::Closed)
 				this->window->close();
-		}
+			else if (event.type == sf::Event::KeyPressed)
+			{
+				switch (event.key.code)
+				{
+				case sf::Keyboard::Left :
 
+					mario.move(-1, 0);
+					break;
+
+				case sf::Keyboard::Right:
+
+					mario.move(1, 0);
+					break;
+
+				case sf::Keyboard::Up:
+
+					mario.move(0, -1);
+					break;
+
+				case sf::Keyboard::Down:
+
+					mario.move(0, 1);
+					break;
+				}
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+					mario.move(-1, -1);
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+					mario.move(-1, 1);
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+					mario.move(1, -1);
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+					mario.move(1, 1);
+			}
+		}
+		
 		this->window->clear();
+		this->window->draw(mario);
 		this->window->display();
 	}
 }
