@@ -20,15 +20,20 @@ void Game::initWindow()
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
 	this->window->setKeyRepeatEnabled(true);
-	sf::Texture mip;
-	if (!mip.loadFromFile("mario.gif"))
+	sf::Texture marioFace;
+	if (!marioFace.loadFromFile("mario.gif"))
 	{
 		// erreur...
+	}
+	sf::Texture marioLeft;
+	if (!marioLeft.loadFromFile("mario_gauche.gif"))
+	{
+		//erreur...
 	}
 
 	sf::Sprite mario;
 
-	mario.setTexture(mip);
+	mario.setTexture(marioFace);
 
 	// A modifier plus tard
 	while (this->window->isOpen())
@@ -43,8 +48,9 @@ void Game::initWindow()
 				switch (event.key.code)
 				{
 				case sf::Keyboard::Left :
-
+					
 					mario.move(-1, 0);
+					mario.setTexture(marioLeft);
 					break;
 
 				case sf::Keyboard::Right:
@@ -60,6 +66,7 @@ void Game::initWindow()
 				case sf::Keyboard::Down:
 
 					mario.move(0, 1);
+					mario.setTexture(marioFace);
 					break;
 				}
 
