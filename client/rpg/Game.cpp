@@ -10,6 +10,7 @@ Game::Game()
 	if (this->instance != NULL) {
 		throw "Une seule instance de Game autorisée";
 	}
+
 	this->instance = this;
 
 	// First let init the window
@@ -20,73 +21,28 @@ void Game::initWindow()
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
 	this->window->setKeyRepeatEnabled(true);
-	sf::Texture marioFace;
-	if (!marioFace.loadFromFile("mario.gif"))
-	{
-		// erreur...
-	}
-	sf::Texture marioLeft;
-	if (!marioLeft.loadFromFile("mario_gauche.gif"))
-	{
-		//erreur...
-	}
-
-	sf::Sprite mario;
-
-	mario.setTexture(marioFace);
-
+	this->window->setFramerateLimit(frameLimite);
+	load();
 	// A modifier plus tard
 	while (this->window->isOpen())
 	{
 		sf::Event event;
+
+		deplacement();
+
 		while (this->window->pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
-				this->window->close();
-			else if (event.type == sf::Event::KeyPressed)
-			{
-				switch (event.key.code)
-				{
-				case sf::Keyboard::Left :
-					
-					mario.move(-1, 0);
-					mario.setTexture(marioLeft);
-					break;
-
-				case sf::Keyboard::Right:
-
-					mario.move(1, 0);
-					break;
-
-				case sf::Keyboard::Up:
-
-					mario.move(0, -1);
-					break;
-
-				case sf::Keyboard::Down:
-
-					mario.move(0, 1);
-					mario.setTexture(marioFace);
-					break;
-				}
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-					mario.move(-1, -1);
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-					mario.move(-1, 1);
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-					mario.move(1, -1);
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-					mario.move(1, 1);
-			}
+			handleEvent(event);
 		}
-		
-		this->window->clear();
-		this->window->draw(mario);
-		this->window->display();
+
+		render();
 	}
 }
 
+Game* Game::getInstance() 
+{
+	return instance;
+}
 
 Game::~Game()
 {
@@ -98,11 +54,99 @@ void Game::start()
 	this->test();
 }
 
-void Game::test() 
+void Game::render()
+{
+	this->window->clear();
+	this->window->draw(Player);
+	this->window->display();
+}
+
+void Game::deplacement()
+{
+	
+	auto elapsedTime = moveClock.restart().asSeconds();
+	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+
+		auto valueMovement =- speed * elapsedTime;
+
+		valueMovement = (int)round(valueMovement);
+
+		Player.move(valueMovement, 0);
+		Player.setTexture(marioLeft);
+
+	}
+
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{		
+		auto valueMovement =+ speed * elapsedTime;
+		
+		valueMovement = (int)round(valueMovement);
+				
+		Player.move(valueMovement, 0);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		auto valueMovement =- speed * elapsedTime;
+
+		valueMovement = (int)round(valueMovement);
+
+		Player.move(0, valueMovement);
+	}
+
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		auto valueMovement = +speed * elapsedTime;
+
+		valueMovement = (int)round(valueMovement);
+
+		Player.move(0, valueMovement);
+		Player.setTexture(marioFace);
+	}
+}
+
+void Game::handleEvent(sf::Event event)
+{
+	if (event.type == sf::Event::Closed)
+	{
+		this->window->close();
+	}
+	else if (event.type == sf::Event::KeyReleased)
+	{
+		if (event.key.code == sf::Keyboard::Escape)
+			Player.setPosition(0, 0);
+	}
+}
+
+sf::RenderWindow* Game::getWindow() const
+{
+	return this->window;
+}
+
+void Game::load()
+{
+	marioFace;
+	if (!marioFace.loadFromFile("mario.gif"))
+	{
+		// erreur...
+	}
+	marioLeft;
+	if (!marioLeft.loadFromFile("mario_gauche.gif"))
+	{
+		//erreur...
+	}
+
+	Player.setTexture(marioFace);
+	Player.setPosition(0, 0);
+}
+
+void Game::test()
 {
 	Guerrier Guerrier(100);
 	Franz franzdebog("Franzdebog", "Agressif", 100, 100, 20, 50, Entity::entityType::Ennemy, 100);
-	Franz franz2("Franz", "ini", 100, 100, 20, 50, Entity::entityType::Ennemy, 100 );
+	Franz franz2("Franz", "ini", 100, 100, 20, 50, Entity::entityType::Ennemy, 100);
 
 	Guerrier.dispPersoType();
 
@@ -132,14 +176,4 @@ void Game::test()
 	system("pause");
 
 	cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
-}
-
-Game* Game::getInstance() 
-{
-	return instance;
-}
-
-sf::RenderWindow* Game::getWindow() const
-{
-	return this->window;
 }

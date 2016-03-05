@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "..\graph\TileMap.h"
+
 
 // The different window parameters
 #define WINDOW_HEIGHT 800
@@ -22,30 +24,36 @@ public:
 
 	// Le commencement
 	void start();
-
 	// Met tes tests ici
 	void test();
-
-	/*
-	 * Récupère l'instance de Game
-	 */
+	// Récupère l'instance de Game
 	static Game* getInstance();
-
-	/*
-	 * Récupère l'instance de sfml window
-	 */
+	// Regroupe le clear, les draw et l'affichage
+	void render();
+	// Evenemnts de déplacement en temps réel
+	void deplacement();
+	// Autres événements ne nécessitant pas le temps réel
+	void handleEvent(sf::Event event);
+	// Récupère l'instance de sfml window
 	sf::RenderWindow* getWindow() const;
+	// Charge les ressources
+	void load();
 
 	
 
 protected:
-
+	
+	int frameLimite = 120;
+	float speed = 90;
+	sf::Clock moveClock;
+	sf::Texture marioFace, marioLeft;
+	sf::Sprite Player;
 	sf::RenderWindow *window;
 	static Game *instance;
 	const int window_height = WINDOW_HEIGHT;
 	const int window_width = WINDOW_WIDTH;
 
-	const std::string window_title = "RPG project";
+	const std::string window_title = "Les Fresques Ancestrales : Abyssia";
 
 	void initWindow();
 };
