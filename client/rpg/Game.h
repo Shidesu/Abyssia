@@ -35,7 +35,7 @@ public:
 	void test();
 	// Collisions avec les bords de la fenêtre
 	void windowCollision();
-	void worldCollision();
+	void worldCollision(sf::Vector2f & last_pos);
 	// Récupère l'instance de Game
 	static Game* getInstance();
 	// Regroupe le clear, les draw et l'affichage
@@ -52,11 +52,12 @@ public:
 	
 
 protected:
-	
 	int frameLimite = 120;
 	float speed = 90;
 	sf::Clock moveClock;
-	sf::Texture marioFace, marioLeft;
+	sf::Texture sachiko;
+	sf::Texture mario;
+	sf::Sprite monster;
 	sf::Sprite Player;
 	sf::RenderWindow *window;
 	static Game *instance;
