@@ -1,3 +1,10 @@
+/*GAME.H
+Définit les prototypes de déplacement du personnage ainsi que la création de la fenêtres et des entités graphiques.
+
+Dernière Modification : 06/03/2016 à 01:20
+
+*/
+
 #include "..\entity\Entity.h"
 #include "..\entity\Franz.h"
 #include "..\entity\Guerrier.h"
