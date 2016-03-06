@@ -32,4 +32,5 @@ protected:
 	int level;
 	std::string persoType;
 
+
 };

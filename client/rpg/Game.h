@@ -20,7 +20,7 @@ Dernière Modification : 06/03/2016 à 01:20
 
 // The different window parameters
 #define WINDOW_HEIGHT 800
-#define WINDOW_WIDTH 900
+#define WINDOW_WIDTH 800
 
 #pragma once
 class Game
@@ -33,6 +33,9 @@ public:
 	void start();
 	// Met tes tests ici
 	void test();
+	// Collisions avec les bords de la fenêtre
+	void windowCollision();
+	void worldCollision();
 	// Récupère l'instance de Game
 	static Game* getInstance();
 	// Regroupe le clear, les draw et l'affichage
@@ -59,6 +62,8 @@ protected:
 	static Game *instance;
 	const int window_height = WINDOW_HEIGHT;
 	const int window_width = WINDOW_WIDTH;
+	sf::VertexArray cubeTestCollision;
+	sf::RectangleShape testR = sf::RectangleShape(sf::Vector2f(5,8));
 
 	const std::string window_title = "Les Fresques Ancestrales : Abyssia";
 

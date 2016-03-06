@@ -33,6 +33,7 @@ void Game::initWindow()
 		sf::Event event;
 
 		deplacement();
+		worldCollision();
 
 		while (this->window->pollEvent(event))
 		{
@@ -61,8 +62,10 @@ void Game::start()
 void Game::render()
 {
 	this->window->clear();
+	this->window->draw(cubeTestCollision);
 	this->window->draw(Player);
 	this->window->display();
+
 }
 
 void Game::deplacement()
@@ -70,6 +73,8 @@ void Game::deplacement()
 	
 	auto elapsedTime = moveClock.restart().asSeconds();
 	
+	windowCollision();
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 
@@ -144,6 +149,19 @@ void Game::load()
 
 	Player.setTexture(marioFace);
 	Player.setPosition(0, 0);
+
+	cubeTestCollision = sf::VertexArray(sf::Quads, 4);
+
+	cubeTestCollision[0].position = sf::Vector2f(100, 100);
+	cubeTestCollision[1].position = sf::Vector2f(200, 100);
+	cubeTestCollision[2].position = sf::Vector2f(200, 200);
+	cubeTestCollision[3].position = sf::Vector2f(100, 200);
+	cubeTestCollision[0].color = sf::Color::Blue;
+	cubeTestCollision[1].color = sf::Color::Green;
+	cubeTestCollision[3].color = sf::Color::Red;
+
+	
+
 }
 
 void Game::test()
@@ -180,4 +198,61 @@ void Game::test()
 	system("pause");
 
 	cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
+}
+
+void Game::windowCollision()
+{
+
+	auto playerBoundingBox = Player.getGlobalBounds();
+
+	auto collisionPos = Player.getPosition();
+
+
+	if (playerBoundingBox.left < 0)
+	{
+			Player.setPosition(collisionPos.x + 1, collisionPos.y);
+	}
+
+	if (playerBoundingBox.left + playerBoundingBox.width > window_width)
+	{
+		Player.setPosition(collisionPos.x - 1, collisionPos.y);
+	}
+
+	if (playerBoundingBox.top < 0)
+	{
+		if(playerBoundingBox.left < 0)
+			Player.setPosition(collisionPos.x + 1, collisionPos.y + 1);
+		else if (playerBoundingBox.left + playerBoundingBox.width > window_width)
+			Player.setPosition(collisionPos.x - 1, collisionPos.y + 1);
+		else
+		Player.setPosition(collisionPos.x, collisionPos.y + 1);
+	}
+
+	if (playerBoundingBox.top + playerBoundingBox.height > window_height)
+	{
+		if (playerBoundingBox.left < 0)
+			Player.setPosition(collisionPos.x + 1, collisionPos.y - 1);
+		else if (playerBoundingBox.left + playerBoundingBox.width > window_width)
+			Player.setPosition(collisionPos.x - 1, collisionPos.y - 1);
+		else
+			Player.setPosition(collisionPos.x, collisionPos.y - 1);
+	}
+
+}
+
+void Game::worldCollision()
+{
+	auto playerBoundingBox = Player.getGlobalBounds();
+	auto testCol = cubeTestCollision.getBounds();
+	auto PlayerRight = playerBoundingBox.left + playerBoundingBox.width;
+	auto boxRight = testCol.left + testCol.width;
+
+	auto collisionPos = Player.getPosition();
+
+	if (playerBoundingBox.intersects(testCol))
+	{
+		Player.setPosition(0, 0);
+	}
+
+
 }
