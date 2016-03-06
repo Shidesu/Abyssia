@@ -114,6 +114,11 @@ void Game::deplacement()
 		Player.move(0, valueMovement);
 		Player.setTexture(marioFace);
 	}
+
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+		speed = 90;
+	else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+		speed = 180;*/
 }
 
 void Game::handleEvent(sf::Event event)
@@ -126,7 +131,10 @@ void Game::handleEvent(sf::Event event)
 	{
 		if (event.key.code == sf::Keyboard::Escape)
 			Player.setPosition(0, 0);
+		
+		
 	}
+
 }
 
 sf::RenderWindow* Game::getWindow() const
@@ -148,7 +156,7 @@ void Game::load()
 	}
 
 	Player.setTexture(marioFace);
-	Player.setPosition(0, 0);
+	Player.setPosition(window_width / 2, window_height / 2);
 
 	cubeTestCollision = sf::VertexArray(sf::Quads, 4);
 
@@ -251,7 +259,17 @@ void Game::worldCollision()
 
 	if (playerBoundingBox.intersects(testCol))
 	{
-		Player.setPosition(0, 0);
+		if (PlayerRight >= testCol.left && PlayerRight < boxRight)
+			Player.setPosition(collisionPos.x - 1, collisionPos.y);
+
+		if (playerBoundingBox.left <= boxRight && playerBoundingBox.left > testCol.left)
+			Player.setPosition(collisionPos.x + 1, collisionPos.y);
+
+		if (playerBoundingBox.top < testCol.top && playerBoundingBox.top + playerBoundingBox.height < testCol.top + testCol.height )
+			Player.setPosition(collisionPos.x, collisionPos.y - 1);
+
+		if (playerBoundingBox.top > testCol.top && playerBoundingBox.top + playerBoundingBox.height > testCol.top + testCol.height)
+			Player.setPosition(collisionPos.x, collisionPos.y + 1);
 	}
 
 
