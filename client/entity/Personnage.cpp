@@ -18,25 +18,25 @@ void Personnage::attack(Entity & cible, int const& damages, Damages::DamagesType
 bool Personnage::isAlive()
 {
 	int actualLife = this->getLife();
-		if (actualLife <= 0)
-		{
-			this->setLife(0);
-			std::cout << "Vous avez perdu..." << std::endl;
-			this->alive = false;
-			return this->alive;
-		}
-		else
-		{
-			this->alive = true;
-			return this->alive;
-		}
+	if (actualLife <= 0)
+	{
+		this->setLife(0);
+		std::cout << "Vous avez perdu..." << std::endl;
+		this->alive = false;
+		return this->alive;
+	}
+	else
+	{
+		this->alive = true;
+		return this->alive;
+	}
 
 }
 
 void Personnage::receiveDamages(Damages damages)
 {
 	Entity::receiveDamages(damages);
-     std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;
+	std::cout << "Il vous reste " << this->getLife() << " points de vie." << std::endl;
 }
 
 int Personnage::getExperience() const

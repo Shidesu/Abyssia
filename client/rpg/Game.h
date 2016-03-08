@@ -49,7 +49,7 @@ public:
 	// Charge les ressources
 	void load();
 
-	
+
 
 protected:
 	int frameLimite = 120;
@@ -64,7 +64,7 @@ protected:
 	const int window_height = WINDOW_HEIGHT;
 	const int window_width = WINDOW_WIDTH;
 	sf::VertexArray cubeTestCollision;
-	sf::RectangleShape testR = sf::RectangleShape(sf::Vector2f(5,8));
+	sf::RectangleShape testR = sf::RectangleShape(sf::Vector2f(5, 8));
 
 	const std::string window_title = "Les Fresques Ancestrales : Abyssia";
 

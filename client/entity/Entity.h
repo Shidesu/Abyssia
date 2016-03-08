@@ -11,12 +11,12 @@ class Damages;
 class Entity
 {
 public:
-	
-	typedef enum class entityType
+
+	typedef enum entityType
 	{
 		Playable, PNJ, Ally, Ennemy
 	} entityType;
-	
+
 	Entity(int life, int mana, int armor, int resistance, entityType unitType, bool alive = true);
 	virtual ~Entity() = 0;
 	virtual void attack();

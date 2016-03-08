@@ -21,7 +21,7 @@ Game::Game()
 	this->initWindow();
 }
 
-void Game::initWindow() 
+void Game::initWindow()
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
 	this->window->setKeyRepeatEnabled(true);
@@ -43,7 +43,7 @@ void Game::initWindow()
 	}
 }
 
-Game* Game::getInstance() 
+Game* Game::getInstance()
 {
 	return instance;
 }
@@ -52,7 +52,7 @@ Game::~Game()
 {
 }
 
-void Game::start() 
+void Game::start()
 {
 	// A commenter lors de la releases
 	this->test();
@@ -70,47 +70,46 @@ void Game::render()
 
 void Game::deplacement()
 {
-	
+
 	auto elapsedTime = moveClock.restart().asSeconds();
-	
+
 	sf::Vector2f last_pos = Player.getPosition();
 
 	windowCollision();
-	
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 
-		auto valueMovement =- speed * elapsedTime;
+		auto valueMovement = -speed * elapsedTime;
 
 		valueMovement = (int)round(valueMovement);
 
-		if (elapsedTime/60)
 		Player.move(valueMovement, 0);
-		Player.setTextureRect(sf::IntRect(0, 68, 32, 28));
+		Player.setTextureRect(sf::IntRect(0, 68, 22, 28));
 		worldCollision(last_pos);
 
 	}
 
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{		
-		
-		auto valueMovement =+ speed * elapsedTime;
-		
+	{
+
+		auto valueMovement = +speed * elapsedTime;
+
 		valueMovement = (int)round(valueMovement);
-				
+
 		Player.move(valueMovement, 0);
-		Player.setTextureRect(sf::IntRect(0, 116, 32, 28));
+		Player.setTextureRect(sf::IntRect(0, 116, 22, 28));
 		worldCollision(last_pos);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		auto valueMovement =- speed * elapsedTime;
+		auto valueMovement = -speed * elapsedTime;
 
 		valueMovement = (int)round(valueMovement);
 
 		Player.move(0, valueMovement);
-		Player.setTextureRect(sf::IntRect(0, 164, 32, 28));
+		Player.setTextureRect(sf::IntRect(0, 164, 22, 28));
 		worldCollision(last_pos);
 	}
 
@@ -121,7 +120,7 @@ void Game::deplacement()
 		valueMovement = (int)round(valueMovement);
 
 		Player.move(0, valueMovement);
-		Player.setTextureRect(sf::IntRect(0, 20, 32, 28));
+		Player.setTextureRect(sf::IntRect(0, 20, 22, 28));
 		worldCollision(last_pos);
 	}
 
@@ -141,8 +140,8 @@ void Game::handleEvent(sf::Event event)
 	{
 		if (event.key.code == sf::Keyboard::Escape)
 			Player.setPosition(0, 0);
-		
-		
+
+
 	}
 
 }
@@ -165,7 +164,7 @@ void Game::load()
 	}
 	monster.setTexture(mario);
 	Player.setTexture(sachiko);
-	Player.setTextureRect(sf::IntRect(0,20,32,28));
+	Player.setTextureRect(sf::IntRect(0, 20, 22, 28));
 	Player.setPosition(window_width / 2, window_height / 2);
 	cubeTestCollision = sf::VertexArray(sf::Quads, 4);
 
@@ -177,7 +176,7 @@ void Game::load()
 	cubeTestCollision[1].color = sf::Color::Green;
 	cubeTestCollision[3].color = sf::Color::Red;
 
-	
+
 
 }
 
@@ -236,7 +235,7 @@ void Game::windowCollision()
 
 	if (playerBoundingBox.left < 0)
 	{
-			Player.setPosition(collisionPos.x + stepBack, collisionPos.y);
+		Player.setPosition(collisionPos.x + stepBack, collisionPos.y);
 	}
 
 	if (playerBoundingBox.left + playerBoundingBox.width > window_width)
@@ -246,12 +245,12 @@ void Game::windowCollision()
 
 	if (playerBoundingBox.top < 0)
 	{
-		if(playerBoundingBox.left < 0)
+		if (playerBoundingBox.left < 0)
 			Player.setPosition(collisionPos.x + stepBack, collisionPos.y + stepBack);
 		else if (playerBoundingBox.left + playerBoundingBox.width > window_width)
 			Player.setPosition(collisionPos.x - stepBack, collisionPos.y + stepBack);
 		else
-		Player.setPosition(collisionPos.x, collisionPos.y + stepBack);
+			Player.setPosition(collisionPos.x, collisionPos.y + stepBack);
 	}
 
 	if (playerBoundingBox.top + playerBoundingBox.height > window_height)
@@ -271,7 +270,7 @@ void Game::worldCollision(sf::Vector2f & last_pos)
 	auto playerBoundingBox = Player.getGlobalBounds();
 	auto testCol = cubeTestCollision.getBounds();
 	auto monsterCol = monster.getGlobalBounds();
-	
+
 	if (playerBoundingBox.intersects(testCol))
 	{
 		Player.setPosition(last_pos);
