@@ -61,8 +61,9 @@ void Game::start()
 void Game::render()
 {
 	this->window->clear();
+	this->window->draw(map);
 	this->window->draw(cubeTestCollision);
-	this->window->draw(monster);
+//	this->window->draw(monster);
 	this->window->draw(Player);
 	this->window->display();
 
@@ -151,8 +152,18 @@ sf::RenderWindow* Game::getWindow() const
 	return this->window;
 }
 
-void Game::load()
+int Game::load()
 {
+	// on définit le niveau à l'aide de numéro de tuiles
+	const int level[] =
+	{
+		0,1,2,3,4,5,6
+	};
+
+	// on crée la tilemap avec le niveau précédemment défini
+	if (!map.load("tileset.png", sf::Vector2u(17, 17), level, 6, 1))
+		return -1;
+
 	sachiko;
 	if (!sachiko.loadFromFile("sachiko.png"))
 	{
@@ -177,6 +188,8 @@ void Game::load()
 	cubeTestCollision[3].color = sf::Color::Red;
 
 
+
+	return 0;
 
 }
 

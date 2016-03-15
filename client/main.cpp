@@ -1,5 +1,10 @@
 #include "rpg/Game.h"
 #include <SFML\Graphics.hpp>
+#include <SFML\System.hpp>
+#include <SFML\Window.hpp>
+#include "graph\TileMap.h"
+
+
 
 int main()
 {
@@ -9,3 +14,4 @@ int main()
 
 	return 0;
 }
+

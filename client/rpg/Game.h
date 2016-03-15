@@ -19,8 +19,8 @@ Dernière Modification : 06/03/2016 à 01:20
 
 
 // The different window parameters
-#define WINDOW_HEIGHT 800
-#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 900
+#define WINDOW_WIDTH 900
 
 #pragma once
 class Game
@@ -47,7 +47,7 @@ public:
 	// Récupère l'instance de sfml window
 	sf::RenderWindow* getWindow() const;
 	// Charge les ressources
-	void load();
+	int load();
 
 
 
@@ -65,6 +65,7 @@ protected:
 	const int window_width = WINDOW_WIDTH;
 	sf::VertexArray cubeTestCollision;
 	sf::RectangleShape testR = sf::RectangleShape(sf::Vector2f(5, 8));
+	TileMap map;
 
 	const std::string window_title = "Les Fresques Ancestrales : Abyssia";
 
