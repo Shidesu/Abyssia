@@ -13,19 +13,21 @@ enum TileType
 	special
 };
 
+class TileMap;
+
 typedef std::pair<int, int> Position;
 
 class Tile
 {
 public:
-	Tile(TileMap *map, TileType type);
+	Tile(TileMap* map, TileType type);
 	~Tile();
 	Position getPosition() const;
 	void setPosition(Position &position);
 	TileMap* getTileMap() const;
-	void setTileMap(TileMap *map);
+	void setTileMap(TileMap* map);
 	Position getAbsolutePosition() const;
-	Position setAbsolutePosition(Position &position);
+	void setAbsolutePosition(Position &position);
 
 protected:
 	TileMap *map;

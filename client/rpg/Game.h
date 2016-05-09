@@ -66,7 +66,7 @@ protected:
 	const int window_width = WINDOW_WIDTH;
 	sf::VertexArray cubeTestCollision;
 	sf::RectangleShape testR = sf::RectangleShape(sf::Vector2f(5, 8));
-	TileMap map;
+	TileMap* map = nullptr;
 
 	const std::string window_title = "Les Fresques Ancestrales : Abyssia";
 

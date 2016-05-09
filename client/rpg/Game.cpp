@@ -61,7 +61,7 @@ void Game::start()
 void Game::render()
 {
 	this->window->clear();
-	this->window->draw(map);
+	//this->window->draw(map);
 	this->window->draw(cubeTestCollision);
 //	this->window->draw(monster);
 	this->window->draw(Player);
@@ -161,10 +161,11 @@ int Game::load()
 	};
 
 	// on crée la tilemap avec le niveau précédemment défini
-	if (!map.load("tileset.png", sf::Vector2u(17, 17), level, 6, 1))
+	/*
+	if (!map->load("tileset.png", sf::Vector2u(17, 17), level, 6, 1))
 		return -1;
-
-	sachiko;
+		*/
+	/*
 	if (!sachiko.loadFromFile("sachiko.png"))
 	{
 		// erreur...
@@ -177,6 +178,8 @@ int Game::load()
 	Player.setTexture(sachiko);
 	Player.setTextureRect(sf::IntRect(0, 20, 22, 28));
 	Player.setPosition(window_width / 2, window_height / 2);
+	*/
+	
 	cubeTestCollision = sf::VertexArray(sf::Quads, 4);
 
 	cubeTestCollision[0].position = sf::Vector2f(100, 100);

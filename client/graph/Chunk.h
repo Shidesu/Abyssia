@@ -5,6 +5,9 @@
 #define TILEMAP_HEIGHT 25
 #define TILEMAP_WIDTH 25
 
+class TileMap;
+typedef std::pair<int, int> Position;
+
 class Chunk :
 	public Renderable
 {

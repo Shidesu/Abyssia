@@ -7,6 +7,9 @@
 
 using namespace std;
 
+class Chunk;
+class Tile;
+
 class TileMap
 {
 public:

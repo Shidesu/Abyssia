@@ -37,7 +37,7 @@ Position Tile::getAbsolutePosition() const
 	return std::make_pair(x, y);
 }
 
-Position Tile::setAbsolutePosition(Position & position)
+void Tile::setAbsolutePosition(Position & position)
 {
 	int x = position.first - TILEMAP_WIDTH * this->getTileMap()->getChunk()->getPosition().first;
 	int y = position.second - TILEMAP_HEIGHT * this->getTileMap()->getChunk()->getPosition().second;
