@@ -17,6 +17,7 @@ public class AbyssiaLauncher extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		world = new World();
 		Tile.init();
+		world.load();
 	}
 
 	@Override

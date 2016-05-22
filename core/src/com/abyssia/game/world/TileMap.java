@@ -13,7 +13,7 @@ public class TileMap {
         return Gdx.graphics.getWidth() / TILES_WIDTH_ON_SCREEN;
     }
 
-    public static int getTileLenght() {
+    public static int getTileHeight() {
         return Gdx.graphics.getHeight() / TILES_HEIGHT_ON_SCREEN;
     }
 

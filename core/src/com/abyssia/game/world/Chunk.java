@@ -12,7 +12,13 @@ public class Chunk {
 
     protected World world;
 
-    public Chunk(){}
+    private int x;
+    private int y;
+
+    public Chunk(){
+        this.tileMap = new TileMap();
+        this.tileMap.setChunk(this);
+    }
 
     public TileMap getTileMap() {
         return tileMap;
@@ -33,5 +39,21 @@ public class Chunk {
 
     public void setWorld(World world) {
         this.world = world;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

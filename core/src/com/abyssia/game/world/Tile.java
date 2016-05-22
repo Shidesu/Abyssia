@@ -29,7 +29,10 @@ public class Tile {
     public Tile(){}
 
     void render(SpriteBatch batch){
-
+        Texture texture = tileTextures.get(this.type);
+        int xPos = this.getX() + this.getChunk().getX() * Chunk.CHUNK_WIDTH;
+        int yPos = this.getY() + this.getChunk().getY() * Chunk.CHUNK_HEIGHT;
+        batch.draw(texture,xPos,yPos,1,1);
     }
 
     public int getX() {
