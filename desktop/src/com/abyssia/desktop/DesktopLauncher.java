@@ -7,6 +7,10 @@ import com.abyssia.AbyssiaLauncher;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		
+		config.title = "Abyssia";
+		
 		new LwjglApplication(new AbyssiaLauncher(), config);
+		
 	}
 }

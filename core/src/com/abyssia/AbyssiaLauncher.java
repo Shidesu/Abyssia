@@ -11,6 +11,7 @@ public class AbyssiaLauncher extends ApplicationAdapter {
 	protected SpriteBatch batch;
 
 	protected World world;
+
 	
 	@Override
 	public void create () {
@@ -18,13 +19,14 @@ public class AbyssiaLauncher extends ApplicationAdapter {
 		world = new World();
 		Tile.init();
 		world.load();
+		
 	}
 
 	@Override
 	public void render () {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
+		batch.begin();		
 		world.render(batch);
 		batch.end();
 	}

@@ -17,6 +17,7 @@ public class Tile {
         tileTextures.put(TileType.Dirt, new Texture(Gdx.files.internal("tiles/dirt.png")));
         tileTextures.put(TileType.Water, new Texture(Gdx.files.internal("tiles/water.png")));
         tileTextures.put(TileType.Stone, new Texture(Gdx.files.internal("tiles/stone.png")));
+
     }
 
     protected int x;
