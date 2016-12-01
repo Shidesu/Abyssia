@@ -14,4 +14,9 @@ public abstract class Character extends Entity  implements Hero{
 		this.roleName = role;	
 	
 	}
+
+	public Character(int level, int hp, int mana, String name, String role) {
+		super(level, hp, mana, name);
+		this.roleName = role;
+	}
 }
