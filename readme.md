@@ -1,2 +1,0 @@
-## RPG
-## RPG DE LA MORT QUI TUE
