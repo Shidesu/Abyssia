@@ -1,10 +1,9 @@
 /*Class Guerrier qui hérite de la class abstraite Personnage.*/
 #pragma once
 
-#include "Damages.h"
+#include "../FightManagers/Damages.h"
 #include "Personnage.h"
 #include <math.h>
-#include "Damages.h"
 #include "Entity.h"
 
 class Guerrier : public Personnage

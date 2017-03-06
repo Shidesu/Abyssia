@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Monster.h"
-#include "Damages.h"
+#include "../FightManagers/Damages.h"
 
 class Franz : public Monster
 {

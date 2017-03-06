@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <math.h>
-#include "Fight.h"
+#include "../FightManagers/Fight.h"
 
 class Fight;
 class Damages;

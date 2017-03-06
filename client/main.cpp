@@ -1,9 +1,8 @@
-#include "rpg/Game.h"
-#include <SFML\Graphics.hpp>
-#include <SFML\System.hpp>
-#include <SFML\Window.hpp>
-#include "graph\TileMap.h"
-
+#include "GameManagers/Game.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include "WorldManagers/TileMap.h"
 
 
 int main()

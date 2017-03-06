@@ -10,13 +10,13 @@ Dernière Modification : 06/03/2016 à 01:20
 #include <string>
 #include <SFML/Graphics.hpp>
 
-#include "..\entity\Entity.h"
-#include "..\entity\Franz.h"
-#include "..\entity\Guerrier.h"
-#include "..\entity\Monster.h"
-#include "..\entity\Personnage.h"
+#include "..\EntityManagers\Entity.h"
+#include "..\EntityManagers\Franz.h"
+#include "..\EntityManagers\Guerrier.h"
+#include "..\EntityManagers\Monster.h"
+#include "..\EntityManagers\Personnage.h"
 #include "..\json.h"
-#include "..\graph\TileMap.h"
+#include "..\WorldManagers\TileMap.h"
 
 
 // The different window parameters
@@ -35,7 +35,7 @@ public:
 	// Met tes tests ici
 	void test();
 	// Collisions avec les bords de la fenêtre
-	void windowCollision();
+	void windowCollision(sf::Vector2f & last_position);
 	void worldCollision(sf::Vector2f & last_pos);
 	// Récupère l'instance de Game
 	static Game* getInstance();

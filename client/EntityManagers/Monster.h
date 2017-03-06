@@ -11,7 +11,7 @@ Dernière modification : 26/02/2016 16h26
 #include "Entity.h"
 #include <string>
 #include <iostream>
-#include "Damages.h"
+#include "../FightManagers/Damages.h"
 
 class Monster : public Entity
 {

@@ -63,7 +63,7 @@ void Game::render()
 	this->window->clear();
 	//this->window->draw(map);
 	this->window->draw(cubeTestCollision);
-//	this->window->draw(monster);
+	this->window->draw(monster);
 	this->window->draw(Player);
 	this->window->display();
 
@@ -76,7 +76,7 @@ void Game::deplacement()
 
 	sf::Vector2f last_pos = Player.getPosition();
 
-	windowCollision();
+	windowCollision(last_pos);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
@@ -127,7 +127,7 @@ void Game::deplacement()
 
 	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
 		speed = 90;
-	else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+	else
 		speed = 180;*/
 }
 
@@ -165,7 +165,6 @@ int Game::load()
 	if (!map->load("tileset.png", sf::Vector2u(17, 17), level, 6, 1))
 		return -1;
 		*/
-	/*
 	if (!sachiko.loadFromFile("sachiko.png"))
 	{
 		// erreur...
@@ -178,8 +177,9 @@ int Game::load()
 	Player.setTexture(sachiko);
 	Player.setTextureRect(sf::IntRect(0, 20, 22, 28));
 	Player.setPosition(window_width / 2, window_height / 2);
-	*/
+
 	
+
 	cubeTestCollision = sf::VertexArray(sf::Quads, 4);
 
 	cubeTestCollision[0].position = sf::Vector2f(100, 100);
@@ -232,7 +232,7 @@ void Game::test()
 	cout << "Il vous reste " << Guerrier.getLife() << " points de vie !!" << endl;
 }
 
-void Game::windowCollision()
+void Game::windowCollision(sf::Vector2f & last_position)
 {
 
 	auto playerBoundingBox = Player.getGlobalBounds();
@@ -251,7 +251,7 @@ void Game::windowCollision()
 
 	if (playerBoundingBox.left < 0)
 	{
-		Player.setPosition(collisionPos.x + stepBack, collisionPos.y);
+		Player.setPosition(last_position);
 	}
 
 	if (playerBoundingBox.left + playerBoundingBox.width > window_width)

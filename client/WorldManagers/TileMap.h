@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "Tile.h"
-#include "../graph/Chunk.h"
+#include "Chunk.h"
 
 using namespace std;
 

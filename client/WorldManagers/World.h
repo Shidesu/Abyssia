@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "Renderable.h"
-#include "../entity/Entity.h"
+#include "../EntityManagers/Entity.h"
 #include "Chunk.h"
 
 class World :

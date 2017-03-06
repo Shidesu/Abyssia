@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h"
+#include "../EntityManagers/Entity.h"
 
 class Entity;
 
