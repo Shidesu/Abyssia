@@ -1,7 +1,7 @@
 #include "Personnage.h"
 /* Les fonctions ci-dessous sont des esquisses de fonctions, et donc très loin d'être définitives.*/
 
-Personnage::Personnage(int life, int mana, int armor, entityType unitType, int resistance, int level, int experience, bool alive) : Entity(life, mana, armor, resistance, unitType, alive), level(level), experience(experience)
+Personnage::Personnage(int life, int mana, int armor, entityType unitType, int resistance, int level, int experience, bool alive) : Entity(life, mana, armor, resistance, unitType, ""), level(level), experience(experience)
 {
 }
 
