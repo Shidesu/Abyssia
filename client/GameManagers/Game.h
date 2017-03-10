@@ -52,20 +52,15 @@ public:
 
 
 
+
 protected:
 	int frameLimite = 120;
 	float speed = 90;
 	sf::Clock moveClock;
-	sf::Texture sachiko;
-	sf::Texture mario;
-	sf::Sprite monster;
-	sf::Sprite Player;
 	sf::RenderWindow *window;
 	static Game *instance;
 	const int window_height = WINDOW_HEIGHT;
 	const int window_width = WINDOW_WIDTH;
-	sf::VertexArray cubeTestCollision;
-	sf::RectangleShape testR = sf::RectangleShape(sf::Vector2f(5, 8));
 	TileMap* map = nullptr;
 
 	const std::string window_title = "Les Fresques Ancestrales : Abyssia";
