@@ -4,7 +4,6 @@
 
 World::World()
 {
-	this->chunks = {};
 	this->entities = {};
 }
 
@@ -28,12 +27,14 @@ void World::setEntities(std::vector<Entity*> entities)
 	this->entities = entities;
 }
 
-std::vector<Chunk*> World::getChunks() const
+Chunk * World::getChunk(Position &pos) const
 {
-	return this->chunks;
+	return chunks[pos.x][pos.y];
 }
 
-void World::setChunks(std::vector<Chunk*> chunks) 
+void World::setChunk(Position &pos, Chunk * chunk)
 {
-	this->chunks = chunks;
+	chunks[pos.x][pos.y] = chunk;
+	chunk->setPosition(pos);
+	chunk->setWorld(this);
 }

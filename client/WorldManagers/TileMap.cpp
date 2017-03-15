@@ -26,15 +26,15 @@ TileMap::~TileMap()
 
 Tile* TileMap::getTile(Position &position) const
 {
-	if (position.first >= this->width || position.second >= this->height)
+	if (position.x >= this->width || position.y >= this->height)
 		throw std::length_error("Attempted to get a Tile out of range");
 
-	return this->tiles[position.second][position.first];
+	return this->tiles[position.x][position.y];
 }
 
 void TileMap::setTile(Tile * tile, Position &position)
 {
-	this->tiles[position.second][position.first] = tile;
+	this->tiles[position.x][position.y] = tile;
 	if (tile != nullptr) {
 		tile->setTileMap(this);
 		tile->setPosition(position);
@@ -44,4 +44,13 @@ void TileMap::setTile(Tile * tile, Position &position)
 Chunk* TileMap::getChunk()
 {
 	return this->chunk;
+}
+
+void TileMap::render(Renderable & element)
+{
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			this->getTile(Position(i, j)).render(element);
+		}
+	}
 }

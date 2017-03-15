@@ -9,6 +9,6 @@ public:
 	/*
 		Render the object in the specified element
 	*/
-	virtual void render(Renderable &element);
+	virtual void render(Renderable &element) = 0;
 };
 

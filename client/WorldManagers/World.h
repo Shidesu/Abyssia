@@ -5,9 +5,16 @@
 #include "../EntityManagers/Entity.h"
 #include "Chunk.h"
 
+#define CHUNKS_HEIGHT 16
+#define CHUNKS_WIDTH 16
+
 class World :
 	public Renderable
 {
+protected:
+	std::vector<Entity*> entities;
+	Chunk* chunks[CHUNKS_WIDTH][CHUNKS_HEIGHT];
+
 public:
 	World();
 	~World();
@@ -17,11 +24,7 @@ public:
 	std::vector<Entity*> getEntities() const;
 	void setEntities(std::vector<Entity*> entities);
 
-	std::vector<Chunk*> getChunks() const;
-	void setChunks(std::vector<Chunk*> chunks);
-
-protected:
-	std::vector<Entity*> entities;
-	std::vector<Chunk*> chunks;
+	Chunk* getChunk(Position &pos) const;
+	void setChunk(Position &pos, Chunk* chunk);
 };
 

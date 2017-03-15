@@ -8,18 +8,22 @@
  */
 enum TileType
 {
-	solid,
-	ground,
-	special
+	DIRT,
+	GRASS,
+	STONE,
+	WATER
 };
 
 class TileMap;
 
 typedef std::pair<int, int> Position;
 
-class Tile
+class Tile :
+	public Renderable
 {
 public:
+	static void init();
+
 	Tile(TileMap* map, TileType type);
 	~Tile();
 	Position getPosition() const;
@@ -29,9 +33,13 @@ public:
 	Position getAbsolutePosition() const;
 	void setAbsolutePosition(Position &position);
 
+	void render(Renderable &element);
+
 protected:
 	TileMap *map;
 	TileType *type;
 	Position position;
+	static std::map<TileType, sf::Texture> textures;
+	static std::map<TileType, sf::Sprite> sprites;
 };
 
