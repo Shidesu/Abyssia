@@ -50,7 +50,7 @@ void TileMap::render(Renderable & element)
 {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
-			this->getTile(Position(i, j)).render(element);
+			this->getTile(Position(i, j))->render(element);
 		}
 	}
 }

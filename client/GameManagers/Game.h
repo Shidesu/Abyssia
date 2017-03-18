@@ -5,6 +5,7 @@ Dernière Modification : 06/03/2016 à 01:20
 
 */
 
+#pragma once
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -23,7 +24,6 @@ Dernière Modification : 06/03/2016 à 01:20
 #define WINDOW_HEIGHT 900
 #define WINDOW_WIDTH 900
 
-#pragma once
 class Game
 {
 public:

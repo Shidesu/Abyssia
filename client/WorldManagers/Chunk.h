@@ -10,6 +10,7 @@
 #define TILEMAP_WIDTH 25
 
 class TileMap;
+class World;
 typedef sf::Vector2i Position;
 
 class Chunk :

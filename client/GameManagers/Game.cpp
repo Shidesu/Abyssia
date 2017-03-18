@@ -27,6 +27,9 @@ void Game::initWindow()
 	this->window->setKeyRepeatEnabled(true);
 	this->window->setFramerateLimit(frameLimite);
 	load();
+
+	Tile::init();
+
 	// A modifier plus tard
 	while (this->window->isOpen())
 	{

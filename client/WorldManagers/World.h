@@ -8,6 +8,9 @@
 #define CHUNKS_HEIGHT 16
 #define CHUNKS_WIDTH 16
 
+class Chunk;
+typedef sf::Vector2i Position;
+
 class World :
 	public Renderable
 {
