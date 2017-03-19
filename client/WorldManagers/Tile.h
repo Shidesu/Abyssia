@@ -24,8 +24,6 @@ enum TileType
 	WATER
 };
 
-//std::map<TileType, sf::Texture> TileTypeTextures;
-//std::map<TileType, sf::Sprite> TileTypeSprites;
 
 class Tile :
 	public Renderable
@@ -48,5 +46,8 @@ protected:
 	TileMap *map;
 	TileType *type;
 	Position position;
+
+	static std::map<TileType, sf::Texture> textures;
+	static std::map<TileType, sf::Sprite> sprites;
 };
 

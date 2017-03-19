@@ -1,22 +1,19 @@
 #include "Tile.h"
 
-bool operator<(TileType & a, TileType & b)
-{
-	return (int) a < (int) b;
-}
+std::map<TileType, sf::Texture> Tile::textures;
+std::map<TileType, sf::Sprite> Tile::sprites;
 
 void Tile::init()
 {
-	/*
 	std::string names[] = {"dirt", "grass", "stone", "water"};
 	TileType types[] = { DIRT, GRASS, STONE, WATER };
 
 	for (int index = 0; index < 4; index++) {
-		TileTypeTextures[types[index]] = sf::Texture();
-		TileTypeTextures[types[index]].loadFromFile("img/" + names[index] + ".png");
-		TileTypeSprites[types[index]] = sf::Sprite(TileTypeTextures[types[index]]);
+		textures[types[index]] = sf::Texture();
+		textures[types[index]].loadFromFile("img/" + names[index] + ".png");
+		sprites[types[index]] = sf::Sprite(textures[types[index]]);
 	}
-	*/
+	
 }
 
 Tile::Tile(TileMap * map, TileType type)
