@@ -4,7 +4,7 @@
 
 Chunk::Chunk(Position &position) : position(position)
 {
-	this->tileMap = new TileMap(this, TILEMAP_HEIGHT, TILEMAP_WIDTH);
+	this->tileMap = make_shared<TileMap>(TileMap(shared_from_this(), TILEMAP_HEIGHT, TILEMAP_WIDTH));
 }
 
 Chunk::Chunk()
@@ -21,12 +21,12 @@ void Chunk::render(Renderable &element)
 
 }
 
-TileMap * Chunk::getTileMap() const
+shared_ptr<TileMap> Chunk::getTileMap() const
 {
 	return this->tileMap;
 }
 
-void Chunk::setTileMap(TileMap * tileMap)
+void Chunk::setTileMap(shared_ptr<TileMap> tileMap)
 {
 	this->tileMap = tileMap;
 }
@@ -41,12 +41,12 @@ void Chunk::setPosition(Position & position)
 	this->position = position;
 }
 
-World * Chunk::getWorld()
+shared_ptr<World> Chunk::getWorld()
 {
-	return this->world;
+	return this->world.lock();
 }
 
-void Chunk::setWorld(World * world)
+void Chunk::setWorld(weak_ptr<World> world)
 {
 	this->world = world;
 }

@@ -8,15 +8,17 @@
 #define CHUNKS_HEIGHT 16
 #define CHUNKS_WIDTH 16
 
+using namespace std;
+
 class Chunk;
 typedef sf::Vector2i Position;
 
 class World :
-	public Renderable
+	public Renderable, enable_shared_from_this<World>
 {
 protected:
-	std::vector<Entity*> entities;
-	Chunk* chunks[CHUNKS_WIDTH][CHUNKS_HEIGHT];
+	std::vector<shared_ptr<Entity>> entities;
+	shared_ptr<Chunk> chunks[CHUNKS_WIDTH][CHUNKS_HEIGHT];
 
 public:
 	World();
@@ -24,10 +26,10 @@ public:
 
 	void render(Renderable &element);
 
-	std::vector<Entity*> getEntities() const;
-	void setEntities(std::vector<Entity*> entities);
+	std::vector<shared_ptr<Entity>> getEntities() const;
+	void setEntities(std::vector<shared_ptr<Entity>> entities);
 
-	Chunk* getChunk(Position &pos) const;
-	void setChunk(Position &pos, Chunk* chunk);
+	shared_ptr<Chunk> getChunk(Position &pos) const;
+	void setChunk(Position &pos, shared_ptr<Chunk> chunk);
 };
 

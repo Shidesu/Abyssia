@@ -1,5 +1,8 @@
 #pragma once
+#include <memory>
 #include "../EntityManagers/Entity.h"
+
+using namespace std;
 
 
 class Damages 
@@ -22,5 +25,5 @@ protected:
 
 	int damages;
 	DamagesType typeDamages;
-	Entity* Sender = NULL;
+	shared_ptr<Entity> Sender;
 };

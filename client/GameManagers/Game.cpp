@@ -7,23 +7,33 @@ Dernière Modification : 06/03/2016 à 01:20
 using namespace std;
 /*using namespace nlohmann;*/
 
-Game *Game::instance = NULL;
+shared_ptr<Game> Game::instance;
+bool Game::isLaunched = false;
+
+shared_ptr<Game> Game::create()
+{
+	if (Game::isLaunched) {
+		throw "Une seule instance de Game autorisée";
+	}
+	Game::instance = shared_ptr<Game>(new Game());
+	Game::isLaunched = true;
+	// First let init the window
+	Game::instance->initWindow();
+
+	Game::isLaunched = false;
+	return Game::instance;
+}
 
 Game::Game()
 {
-	if (this->instance != NULL) {
+	if (Game::isLaunched) {
 		throw "Une seule instance de Game autorisée";
 	}
-
-	this->instance = this;
-
-	// First let init the window
-	this->initWindow();
 }
 
 void Game::initWindow()
 {
-	this->window = new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title);
+	this->window = shared_ptr<sf::RenderWindow>(new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title));
 	this->window->setKeyRepeatEnabled(true);
 	this->window->setFramerateLimit(frameLimite);
 	load();
@@ -46,9 +56,9 @@ void Game::initWindow()
 	}
 }
 
-Game* Game::getInstance()
+shared_ptr<Game> Game::getInstance()
 {
-	return instance;
+	return Game::instance;
 }
 
 Game::~Game()
@@ -84,7 +94,7 @@ void Game::handleEvent(sf::Event event)
 
 }
 
-sf::RenderWindow* Game::getWindow() const
+shared_ptr<sf::RenderWindow> Game::getWindow() const
 {
 	return this->window;
 }

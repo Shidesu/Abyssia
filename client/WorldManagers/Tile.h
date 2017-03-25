@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <memory>
 
 #include "SFML\Graphics.hpp"
 
@@ -11,6 +12,7 @@
 	The type of the TileType, can be solid ( entities can't go in) , ground ( entities can walk on it )
 	or special
  */
+using namespace std;
 
 typedef sf::Vector2i Position;
 
@@ -31,20 +33,20 @@ class Tile :
 public:
 	static void init();
 
-	Tile(TileMap* map, TileType type);
+	Tile(weak_ptr<TileMap> map, TileType type);
 	~Tile();
 	Position getPosition() const;
 	void setPosition(Position &position);
-	TileMap* getTileMap() const;
-	void setTileMap(TileMap* map);
+	shared_ptr<TileMap> getTileMap() const;
+	void setTileMap(weak_ptr<TileMap> map);
 	Position getAbsolutePosition() const;
 	void setAbsolutePosition(Position &position);
 
 	void render(Renderable &element);
 
 protected:
-	TileMap *map;
-	TileType *type;
+	weak_ptr<TileMap> map;
+	TileType type;
 	Position position;
 
 	static std::map<TileType, sf::Texture> textures;

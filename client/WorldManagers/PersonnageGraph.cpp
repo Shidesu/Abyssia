@@ -126,6 +126,10 @@ void PersonnageG::windowCollision()
 
 }
 
+void PersonnageG::worldCollision(sf::Vector2f & last_pos)
+{
+}
+
 /*void PersonnageG::worldCollision(sf::Vector2f & last_pos)
 {
 	auto playerBoundingBox = Player.getGlobalBounds();

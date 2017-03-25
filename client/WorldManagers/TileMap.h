@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include "Tile.h"
 #include "Chunk.h"
@@ -11,21 +12,20 @@ class Chunk;
 class Tile;
 
 class TileMap :
-	public Renderable
+	public Renderable, enable_shared_from_this<TileMap>
 {
 public:
-	TileMap(Chunk *chunk,int heigth, int width);
-	~TileMap();
-	Tile* getTile(Position &position) const;
-	void setTile(Tile* tile, Position &position);
-	Chunk* getChunk();
+	TileMap(weak_ptr<Chunk> chunk,int heigth, int width);
+	shared_ptr<Tile> getTile(Position &position) const;
+	void setTile(shared_ptr<Tile> tile, Position &position);
+	shared_ptr<Chunk> getChunk();
 	void render(Renderable &element);
 
 protected:
-	std::vector<std::vector<Tile*>> tiles = {};
+	std::vector<std::vector<shared_ptr<Tile>>> tiles = {};
 	int height;
 	int width;
-	Chunk *chunk;
+	weak_ptr<Chunk> chunk;
 	
 };
 

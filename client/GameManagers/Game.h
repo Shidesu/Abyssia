@@ -9,6 +9,7 @@ Dernière Modification : 06/03/2016 à 01:20
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <memory>
 #include <SFML/Graphics.hpp>
 
 #include "..\EntityManagers\Entity.h"
@@ -27,7 +28,7 @@ Dernière Modification : 06/03/2016 à 01:20
 class Game
 {
 public:
-	Game();
+	static shared_ptr<Game> create();
 	~Game();
 
 	// Le commencement
@@ -38,7 +39,7 @@ public:
 	void windowCollision(sf::Vector2f & last_position);
 	void worldCollision(sf::Vector2f & last_pos);
 	// Récupère l'instance de Game
-	static Game* getInstance();
+	static shared_ptr<Game> getInstance();
 	// Regroupe le clear, les draw et l'affichage
 	void render();
 	// Evenemnts de déplacement en temps réel
@@ -46,7 +47,7 @@ public:
 	// Autres événements ne nécessitant pas le temps réel
 	void handleEvent(sf::Event event);
 	// Récupère l'instance de sfml window
-	sf::RenderWindow* getWindow() const;
+	shared_ptr<sf::RenderWindow> getWindow() const;
 	// Charge les ressources
 	int load();
 
@@ -54,14 +55,17 @@ public:
 
 
 protected:
+	Game();
+
 	int frameLimite = 120;
 	float speed = 90;
 	sf::Clock moveClock;
-	sf::RenderWindow *window;
-	static Game *instance;
+	shared_ptr<sf::RenderWindow> window;
+	static shared_ptr<Game> instance;
+	static bool isLaunched;
 	const int window_height = WINDOW_HEIGHT;
 	const int window_width = WINDOW_WIDTH;
-	TileMap* map = nullptr;
+	shared_ptr<TileMap> map;
 
 	const std::string window_title = "Les Fresques Ancestrales : Abyssia";
 

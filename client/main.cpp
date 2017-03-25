@@ -7,7 +7,7 @@
 int main()
 {
 	// Les deux lignes nécessaires
-	Game* game = new Game();
+	shared_ptr<Game> game = Game::create();
 	game->start();
 
 	return 0;

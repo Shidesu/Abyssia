@@ -16,7 +16,7 @@ void Tile::init()
 	
 }
 
-Tile::Tile(TileMap * map, TileType type)
+Tile::Tile(weak_ptr<TileMap> map, TileType type)
 {
 }
 
@@ -34,14 +34,14 @@ void Tile::setPosition(Position &position)
 	this->position = position;
 }
 
-TileMap * Tile::getTileMap() const
+shared_ptr<TileMap> Tile::getTileMap() const
 {
-	return this->map;
+	return this->map.lock();
 }
 
-void Tile::setTileMap(TileMap * map)
+void Tile::setTileMap(weak_ptr<TileMap> map)
 {
-	if (this->map != nullptr)this->map->setTile(nullptr, this->position);
+	if (!this->map.expired())this->getTileMap()->setTile(NULL, this->position);
 	this->map = map;
 }
 

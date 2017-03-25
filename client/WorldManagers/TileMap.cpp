@@ -2,29 +2,18 @@
 
 
 
-TileMap::TileMap(Chunk *chunk,int height, int width) : chunk(chunk), height(height), width(width)
+TileMap::TileMap(weak_ptr<Chunk> chunk,int height, int width) : chunk(chunk), height(height), width(width)
 {
 	this->tiles.reserve(height);
 	for (int i = 0; i < height; i++)
 	{
-		std::vector<Tile*> tileLine = {};
+		std::vector<shared_ptr<Tile>> tileLine = {};
 		tileLine.reserve(width);
 		this->tiles.push_back(tileLine);
 	}
 }
 
-
-TileMap::~TileMap()
-{
-	// delete all the tiles
-	for (auto tileLine : this->tiles) {
-		for (Tile *tile : tileLine) {
-			delete tile;
-		}
-	}
-}
-
-Tile* TileMap::getTile(Position &position) const
+shared_ptr<Tile> TileMap::getTile(Position &position) const
 {
 	if (position.x >= this->width || position.y >= this->height)
 		throw std::length_error("Attempted to get a Tile out of range");
@@ -32,18 +21,18 @@ Tile* TileMap::getTile(Position &position) const
 	return this->tiles[position.x][position.y];
 }
 
-void TileMap::setTile(Tile * tile, Position &position)
+void TileMap::setTile(shared_ptr<Tile> tile, Position &position)
 {
 	this->tiles[position.x][position.y] = tile;
 	if (tile != nullptr) {
-		tile->setTileMap(this);
+		tile->setTileMap(shared_from_this());
 		tile->setPosition(position);
 	}
 }
 
-Chunk* TileMap::getChunk()
+shared_ptr<Chunk> TileMap::getChunk()
 {
-	return this->chunk;
+	return this->chunk.lock();
 }
 
 void TileMap::render(Renderable & element)

@@ -2,3 +2,7 @@
 
 
 void Movements::deplacement(){}
+
+void Movements::collisions()
+{
+}

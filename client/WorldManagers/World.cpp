@@ -17,24 +17,24 @@ void World::render(Renderable &element) {
 
 }
 
-std::vector<Entity*> World::getEntities() const
+std::vector<shared_ptr<Entity>> World::getEntities() const
 {
 	return this->entities;
 }
 
-void World::setEntities(std::vector<Entity*> entities) 
+void World::setEntities(std::vector<shared_ptr<Entity>> entities) 
 {
 	this->entities = entities;
 }
 
-Chunk * World::getChunk(Position &pos) const
+shared_ptr<Chunk> World::getChunk(Position &pos) const
 {
 	return chunks[pos.x][pos.y];
 }
 
-void World::setChunk(Position &pos, Chunk * chunk)
+void World::setChunk(Position &pos, shared_ptr<Chunk> chunk)
 {
 	chunks[pos.x][pos.y] = chunk;
 	chunk->setPosition(pos);
-	chunk->setWorld(this);
+	chunk->setWorld(shared_from_this());
 }

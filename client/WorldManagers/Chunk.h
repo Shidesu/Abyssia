@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "SFML\System.hpp"
 
 #include "Renderable.h"
@@ -14,12 +16,12 @@ class World;
 typedef sf::Vector2i Position;
 
 class Chunk :
-	public Renderable
+	public Renderable, enable_shared_from_this<Chunk>
 {
 protected:
-	TileMap* tileMap;
+	shared_ptr<TileMap> tileMap;
 	Position position;
-	World* world;
+	weak_ptr<World> world;
 public:
 	Chunk(Position &position);
 	Chunk();
@@ -27,14 +29,14 @@ public:
 
 	void render(Renderable &element);
 
-	TileMap* getTileMap() const;
-	void setTileMap(TileMap* tileMap);
+	shared_ptr<TileMap> getTileMap() const;
+	void setTileMap(shared_ptr<TileMap> tileMap);
 
 	Position getPosition() const;
 	void setPosition(Position &position);
 
-	World* getWorld();
-	void setWorld(World *world);
+	shared_ptr<World> getWorld();
+	void setWorld(weak_ptr<World> world);
 
 };
 
