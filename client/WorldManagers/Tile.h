@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <unordered_map>
 #include <memory>
 
 #include "SFML\Graphics.hpp"
@@ -49,7 +50,7 @@ protected:
 	TileType type;
 	Position position;
 
-	static std::map<TileType, sf::Texture> textures;
+	static std::map<TileType, std::unique_ptr<sf::Texture>> textures;
 	static std::map<TileType, sf::Sprite> sprites;
 };
 

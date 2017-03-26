@@ -1,23 +1,28 @@
 #include "Tile.h"
 
-std::map<TileType, sf::Texture> Tile::textures;
+std::map<TileType, unique_ptr<sf::Texture>> Tile::textures;
 std::map<TileType, sf::Sprite> Tile::sprites;
 
 void Tile::init()
 {
+	std::map<TileType, unique_ptr<sf::Texture>>::iterator index;
+	std::map<TileType, sf::Sprite>::iterator it;
 	std::string names[] = {"dirt", "grass", "stone", "water"};
 	TileType types[] = { DIRT, GRASS, STONE, WATER };
+	int i(0);
 
-	for (int index = 0; index < 4; index++) {
-		textures[types[index]] = sf::Texture();
-		textures[types[index]].loadFromFile("img/" + names[index] + ".png");
-		sprites[types[index]] = sf::Sprite(textures[types[index]]);
+	for (index = Tile::textures.begin(); index != textures.end(); index++) {
+		index->second = make_unique<sf::Texture>(sf::Texture());
+		index->second->loadFromFile("img/" + names[i] + ".png");
+		it->second = sf::Sprite(*index->second);
+		it++; i++;
 	}
 	
 }
 
 Tile::Tile(weak_ptr<TileMap> map, TileType type)
 {
+	
 }
 
 Tile::~Tile()
