@@ -116,6 +116,10 @@ int Game::load()
 
 void Game::test()
 {
+	Franz franz("Franz", "Franzini");
+	cout << "lol";
+	system("pause");
+
 }
 
 void Game::windowCollision(sf::Vector2f & last_position)

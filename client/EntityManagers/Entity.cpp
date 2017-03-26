@@ -3,7 +3,7 @@
 
 Entity::Entity(int life, int mana, int armor, int resistance, entityType unitType, std::string textureName, bool alive) : life(life), mana(mana), armor(armor), resistance(resistance), unitType(unitType), alive(alive)
 {
-	this->entityTexture.loadFromFile(textureName);
+	//this->entityTexture.loadFromFile(textureName);
 }
 
 Entity::~Entity()

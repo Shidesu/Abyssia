@@ -7,6 +7,7 @@ void Tile::init()
 {
 	std::map<TileType, unique_ptr<sf::Texture>>::iterator index;
 	std::map<TileType, sf::Sprite>::iterator it;
+	it = sprites.begin();
 	std::string names[] = {"dirt", "grass", "stone", "water"};
 	TileType types[] = { DIRT, GRASS, STONE, WATER };
 	int i(0);
