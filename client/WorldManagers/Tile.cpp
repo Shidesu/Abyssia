@@ -1,7 +1,5 @@
 #include "Tile.h"
 
-
-
 std::map<TileType, TileData> Tile::tiles;
 
 void Tile::init()
