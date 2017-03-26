@@ -12,6 +12,8 @@ Dernière Modification : 06/03/2016 à 01:20
 #include <memory>
 #include <SFML/Graphics.hpp>
 
+#include "..\Tools\macros.h";
+
 #include "..\EntityManagers\Entity.h"
 #include "..\EntityManagers\Franz.h"
 #include "..\EntityManagers\Guerrier.h"
@@ -24,10 +26,11 @@ Dernière Modification : 06/03/2016 à 01:20
 #define WINDOW_HEIGHT 900
 #define WINDOW_WIDTH 900
 
-class Game
+class Game :
+	public pointeur_intelligent<Game>
 {
 public:
-	static shared_ptr<Game> create();
+	static Game::ps create();
 	~Game();
 
 	// Le commencement
@@ -38,7 +41,7 @@ public:
 	void windowCollision(sf::Vector2f & last_position);
 	void worldCollision(sf::Vector2f & last_pos);
 	// Récupère l'instance de Game
-	static shared_ptr<Game> getInstance();
+	static Game::ps getInstance();
 	// Regroupe le clear, les draw et l'affichage
 	void render();
 	// Evenemnts de déplacement en temps réel
@@ -60,7 +63,7 @@ protected:
 	float speed = 90;
 	sf::Clock moveClock;
 	shared_ptr<sf::RenderWindow> window;
-	static shared_ptr<Game> instance;
+	static Game::ps instance;
 	static bool isLaunched;
 	const int window_height = WINDOW_HEIGHT;
 	const int window_width = WINDOW_WIDTH;

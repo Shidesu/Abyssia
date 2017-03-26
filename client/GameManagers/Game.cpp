@@ -7,15 +7,15 @@ Dernière Modification : 06/03/2016 à 01:20
 using namespace std;
 /*using namespace nlohmann;*/
 
-shared_ptr<Game> Game::instance;
+Game::ps Game::instance;
 bool Game::isLaunched = false;
 
-shared_ptr<Game> Game::create()
+Game::ps Game::create()
 {
 	if (Game::isLaunched) {
 		throw "Une seule instance de Game autorisée";
 	}
-	Game::instance = shared_ptr<Game>(new Game());
+	Game::instance = Game::ps(new Game());
 	Game::isLaunched = true;
 	// First let init the window
 	Game::instance->initWindow();
@@ -56,7 +56,7 @@ void Game::initWindow()
 	}
 }
 
-shared_ptr<Game> Game::getInstance()
+Game::ps Game::getInstance()
 {
 	return Game::instance;
 }
