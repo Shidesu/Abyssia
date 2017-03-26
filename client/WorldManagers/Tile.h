@@ -55,6 +55,7 @@ protected:
 	weak_ptr<TileMap> map;
 	TileType type;
 	Position position;
+
 	static std::map<TileType, TileData> tiles;
 };
 
