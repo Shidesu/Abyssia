@@ -24,12 +24,12 @@ Franz::~Franz()
 
 std::string Franz::getMonsterType() const
 {
-	return this->monsterType;
+	return monsterType;
 }
 
 void Franz::attack(Entity & cible, int damages, Damages::DamagesType typeDegats)
 {
-	if (this->isAlive())
+	if (isAlive())
 	{
 		Damages damagesT(damages, this, typeDegats);
 		//Damages damages(damages, this, Damages::DamagesType::Physical);

@@ -33,21 +33,21 @@ Game::Game()
 
 void Game::initWindow()
 {
-	this->window = shared_ptr<sf::RenderWindow>(new sf::RenderWindow(sf::VideoMode(this->window_width, this->window_height), this->window_title));
-	this->window->setKeyRepeatEnabled(true);
-	this->window->setFramerateLimit(frameLimite);
+	window = shared_ptr<sf::RenderWindow>(new sf::RenderWindow(sf::VideoMode(window_width, window_height), window_title));
+	window->setKeyRepeatEnabled(true);
+	window->setFramerateLimit(frameLimite);
 	load();
 
 	Tile::init();
 
 	// A modifier plus tard
-	while (this->window->isOpen())
+	while (window->isOpen())
 	{
 		sf::Event event;
 
 		deplacement();
 
-		while (this->window->pollEvent(event))
+		while (window->pollEvent(event))
 		{
 			handleEvent(event);
 		}
@@ -68,15 +68,18 @@ Game::~Game()
 void Game::start()
 {
 	// A commenter lors de la releases
-	this->test();
+	test();
 }
 
 void Game::render()
 {
-	this->window->clear();
-	//sf::View view(this->window->getSize() / 16);
-	//this->window->draw(map);
-	this->window->display();
+	
+	if (window->isOpen()) {
+		window->clear();
+		//sf::View view(this->window->getSize() / 16);
+		//this->window->draw(map);
+		window->display();
+	}
 
 }
 
@@ -90,14 +93,14 @@ void Game::handleEvent(sf::Event event)
 {
 	if (event.type == sf::Event::Closed)
 	{
-		this->window->close();
+		window->close();
 	}
 
 }
 
 shared_ptr<sf::RenderTarget> Game::getWindow() const
 {
-	return this->window;
+	return window;
 }
 
 int Game::load()

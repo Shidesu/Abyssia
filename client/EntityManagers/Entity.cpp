@@ -22,18 +22,18 @@ void Entity::receiveDamages(Damages damages)
 	
 	if (damages.getTypeDamages() == Damages::DamagesType::Physical)
 	{
-		*damagesReceived = (int)round(*damagesReceived * pow(0.99, this->getArmor()));
+		*damagesReceived = (int)round(*damagesReceived * pow(0.99, getArmor()));
 	}
 	else if (damages.getTypeDamages() == Damages::DamagesType::Magic)
 	{
-		*damagesReceived = (int)round(*damagesReceived * pow(0.99, this->getMagicResistance()));
+		*damagesReceived = (int)round(*damagesReceived * pow(0.99, getMagicResistance()));
 	}
 		
-		this->setLife(this->getLife() - *damagesReceived);
-	if (this->getLife() <= 0)
+		setLife(getLife() - *damagesReceived);
+	if (getLife() <= 0)
 	{
-		this->setLife(0);
-		this->alive = false;
+		setLife(0);
+		alive = false;
 	}
 	/*damages = (int)round(double(damages) * pow(0.99, this->getArmor()));
 
@@ -42,7 +42,7 @@ void Entity::receiveDamages(Damages damages)
 
 int Entity::getMana() const
 {
-	return this->mana;
+	return mana;
 }
 
 void Entity::setMana(int manaQuantity)
@@ -52,7 +52,7 @@ void Entity::setMana(int manaQuantity)
 
 int Entity::getLife() const
 {
-	return this->life;
+	return life;
 }
 
 void Entity::setLife(int lifeQuantity)
@@ -62,7 +62,7 @@ void Entity::setLife(int lifeQuantity)
 
 int Entity::getArmor() const
 {
-	return this->armor;
+	return armor;
 }
 
 void Entity::setArmor(int armor)
@@ -72,7 +72,7 @@ void Entity::setArmor(int armor)
 
 int Entity::getMagicResistance() const
 {
-	return this->resistance;
+	return resistance;
 }
 
 void Entity::setMagicResistance(int magicResistance)

@@ -17,7 +17,7 @@ void Personnage::attack(Entity & cible, int const& damages, Damages::DamagesType
 
 bool Personnage::isAlive()
 {
-	int actualLife = this->getLife();
+	int actualLife = getLife();
 	if (actualLife <= 0)
 	{
 		this->setLife(0);

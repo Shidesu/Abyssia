@@ -15,35 +15,35 @@ Monster::~Monster()
 
 string Monster::getMonsterName() const
 {
-	return this->monsterName;
+	return monsterName;
 }
 
 string Monster::getMonsterType() const
 {
-    return this->monsterType;
+    return monsterType;
 }
 
 void Monster::receiveDamages(Damages damages)
 {
 	Entity::receiveDamages(damages);
-	std::cout << "Il reste " << this->getLife() << " points de vie à " << this->getMonsterType() << " " << this->getMonsterName() << "." << std::endl;
+	std::cout << "Il reste " << getLife() << " points de vie à " << getMonsterType() << " " << getMonsterName() << "." << std::endl;
 }
 
 bool Monster::isAlive()
 {
-	int actualLife = this->getLife();
+	int actualLife = getLife();
 	if (actualLife <= 0)
 	{
-		this->setLife(0);
-		this->alive = false;
-		cout << "Vous avez tué " << this->getMonsterType() << " " << this->getMonsterName() << " !!!" << endl;
-		cout << "Vous gagnez " << this->experienceGiven << " expérience et " << this->goldGiven << " pièces d'or !" << endl << "Bien joué ;)" << endl;
-		return this->alive;
+		setLife(0);
+		alive = false;
+		cout << "Vous avez tué " << getMonsterType() << " " << getMonsterName() << " !!!" << endl;
+		cout << "Vous gagnez " << experienceGiven << " expérience et " << goldGiven << " pièces d'or !" << endl << "Bien joué ;)" << endl;
+		return alive;
 	}
 	else
 	{
-		this->alive = true;
-		return this->alive;
+		alive = true;
+		return alive;
 	}
 
 }

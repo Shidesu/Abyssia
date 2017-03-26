@@ -18,7 +18,7 @@ void Guerrier::dispPersoType() const
 
 void Guerrier::attack(Entity & cible, int const & damages, Damages::DamagesType typeDegats)
 {
-	if (this->isAlive())
+	if (isAlive())
 	{
 		Damages damagesT(damages, this, typeDegats);
 		//Damages damages(damages, this, Damages::DamagesType::Physical);

@@ -24,11 +24,12 @@ Tile::Tile(weak_ptr<TileMap> map, TileType type)
 
 Tile::~Tile()
 {
+
 }
 
 Position Tile::getPosition() const
 {
-	return this->position;
+	return position;
 }
 
 void Tile::setPosition(Position &position)
@@ -38,31 +39,31 @@ void Tile::setPosition(Position &position)
 
 shared_ptr<TileMap> Tile::getTileMap() const
 {
-	return this->map.lock();
+	return map.lock();
 }
 
 void Tile::setTileMap(weak_ptr<TileMap> map)
 {
-	if (!this->map.expired())this->getTileMap()->setTile(NULL, this->position);
+	if (!this->map.expired())getTileMap()->setTile(nullptr, position);
 	this->map = map;
 }
 
 Position Tile::getAbsolutePosition() const
 {
-	int x = TILEMAP_WIDTH * this->getTileMap()->getChunk()->getPosition().x+ this->position.x;
-	int y = TILEMAP_HEIGHT * this->getTileMap()->getChunk()->getPosition().y + this->position.y;
+	int x = TILEMAP_WIDTH * getTileMap()->getChunk()->getPosition().x+ position.x;
+	int y = TILEMAP_HEIGHT * getTileMap()->getChunk()->getPosition().y + position.y;
 	return Position(x, y);
 }
 
 void Tile::setAbsolutePosition(Position & position)
 {
-	int x = position.x - TILEMAP_WIDTH * this->getTileMap()->getChunk()->getPosition().x;
-	int y = position.y - TILEMAP_HEIGHT * this->getTileMap()->getChunk()->getPosition().y;
-	this->setPosition(Position(x,y));
+	int x = position.x - TILEMAP_WIDTH * getTileMap()->getChunk()->getPosition().x;
+	int y = position.y - TILEMAP_HEIGHT * getTileMap()->getChunk()->getPosition().y;
+	setPosition(Position(x,y));
 }
 
 void Tile::render(sf::RenderTarget & element)
 {
-	tiles[this->type].sprites.setPosition(static_cast<sf::Vector2f>(this->getAbsolutePosition()));
-	element.draw(tiles[this->type].sprites);
+	tiles[type].sprites.setPosition(static_cast<sf::Vector2f>(getAbsolutePosition()));
+	element.draw(tiles[type].sprites);
 }
