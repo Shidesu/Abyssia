@@ -6,14 +6,13 @@ Dernière Modification : 06/03/2016 à 01:20
 */
 
 #pragma once
+
 #include <cstdlib>
 #include <iostream>
 #include <string>
 #include <memory>
 #include <SFML/Graphics.hpp>
-
-#include "..\Tools\macros.h";
-
+#include "..\Tools\macros.h"
 #include "..\EntityManagers\Entity.h"
 #include "..\EntityManagers\Franz.h"
 #include "..\EntityManagers\Guerrier.h"
