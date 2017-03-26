@@ -19,7 +19,7 @@ public:
 	shared_ptr<Tile> getTile(Position &position) const;
 	void setTile(shared_ptr<Tile> tile, Position &position);
 	shared_ptr<Chunk> getChunk();
-	void render(Renderable &element);
+	void render(sf::RenderTarget &element);
 
 protected:
 	std::vector<std::vector<shared_ptr<Tile>>> tiles = {};

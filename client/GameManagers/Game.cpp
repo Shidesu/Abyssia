@@ -74,6 +74,7 @@ void Game::start()
 void Game::render()
 {
 	this->window->clear();
+	//sf::View view(this->window->getSize() / 16);
 	//this->window->draw(map);
 	this->window->display();
 
@@ -94,7 +95,7 @@ void Game::handleEvent(sf::Event event)
 
 }
 
-shared_ptr<sf::RenderWindow> Game::getWindow() const
+shared_ptr<sf::RenderTarget> Game::getWindow() const
 {
 	return this->window;
 }

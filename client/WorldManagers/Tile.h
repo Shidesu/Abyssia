@@ -49,7 +49,7 @@ public:
 	Position getAbsolutePosition() const;
 	void setAbsolutePosition(Position &position);
 
-	void render(Renderable &element);
+	void render(sf::RenderTarget &element);
 
 protected:
 	weak_ptr<TileMap> map;

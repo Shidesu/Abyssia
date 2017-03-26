@@ -14,6 +14,7 @@ void Tile::init()
 		tiles[types[i]].textures = make_unique<sf::Texture>(sf::Texture());
 		tiles[types[i]].textures->loadFromFile("img/" + names[i] + ".png");
 		tiles[types[i]].sprites = sf::Sprite(*tiles[types[i]].textures);
+		tiles[types[i]].sprites.scale(sf::Vector2f(0.0625f,0.0625f));
 	}
 	
 }
@@ -62,6 +63,8 @@ void Tile::setAbsolutePosition(Position & position)
 	this->setPosition(Position(x,y));
 }
 
-void Tile::render(Renderable & element)
+void Tile::render(sf::RenderTarget & element)
 {
+	tiles[this->type].sprites.setPosition(static_cast<sf::Vector2f>(this->getAbsolutePosition()));
+	element.draw(tiles[this->type].sprites);
 }

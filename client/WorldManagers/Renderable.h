@@ -1,5 +1,7 @@
 #pragma once
 
+#include "SFML\Graphics.hpp"
+
 class Renderable
 {
 public:
@@ -9,6 +11,6 @@ public:
 	/*
 		Render the object in the specified element
 	*/
-	virtual void render(Renderable &element) = 0;
+	virtual void render(sf::RenderTarget &element) = 0;
 };
 

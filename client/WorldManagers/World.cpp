@@ -12,7 +12,7 @@ World::~World()
 {
 }
 
-void World::render(Renderable &element) {
+void World::render(sf::RenderTarget &element) {
 	// Can change this in the future
 
 }

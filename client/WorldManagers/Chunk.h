@@ -27,7 +27,7 @@ public:
 	Chunk();
 	~Chunk();
 
-	void render(Renderable &element);
+	void render(sf::RenderTarget &element);
 
 	shared_ptr<TileMap> getTileMap() const;
 	void setTileMap(shared_ptr<TileMap> tileMap);

@@ -35,7 +35,7 @@ shared_ptr<Chunk> TileMap::getChunk()
 	return this->chunk.lock();
 }
 
-void TileMap::render(Renderable & element)
+void TileMap::render(sf::RenderTarget & element)
 {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {

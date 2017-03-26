@@ -11,6 +11,6 @@ Renderable::~Renderable()
 {
 }
 
-void Renderable::render(Renderable &element) {
+void Renderable::render(sf::RenderTarget &element) {
 
 }

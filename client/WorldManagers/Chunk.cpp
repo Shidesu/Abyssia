@@ -16,9 +16,9 @@ Chunk::~Chunk()
 {
 }
 
-void Chunk::render(Renderable &element)
+void Chunk::render(sf::RenderTarget &element)
 {
-
+	this->tileMap->render(element);
 }
 
 shared_ptr<TileMap> Chunk::getTileMap() const

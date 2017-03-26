@@ -24,7 +24,7 @@ public:
 	World();
 	~World();
 
-	void render(Renderable &element);
+	void render(sf::RenderTarget &element);
 
 	std::vector<shared_ptr<Entity>> getEntities() const;
 	void setEntities(std::vector<shared_ptr<Entity>> entities);

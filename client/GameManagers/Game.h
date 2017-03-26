@@ -49,7 +49,7 @@ public:
 	// Autres événements ne nécessitant pas le temps réel
 	void handleEvent(sf::Event event);
 	// Récupère l'instance de sfml window
-	shared_ptr<sf::RenderWindow> getWindow() const;
+	shared_ptr<sf::RenderTarget> getWindow() const;
 	// Charge les ressources
 	int load();
 
