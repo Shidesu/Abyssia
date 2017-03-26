@@ -32,7 +32,6 @@
 *.layout
 
 # Headers used by SFML
-*.hpp
 *.inl
 html/*
 SFML-2.3.2/*
