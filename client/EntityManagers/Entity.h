@@ -5,6 +5,9 @@
 #include <math.h>
 #include "../FightManagers/Fight.h"
 #include <SFML\Graphics.hpp>
+#include "../json.hpp"
+
+using json = nlohmann::json;
 
 class Fight;
 class Damages;

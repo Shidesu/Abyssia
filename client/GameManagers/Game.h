@@ -17,7 +17,6 @@ Dernière Modification : 06/03/2016 à 01:20
 #include "..\EntityManagers\Guerrier.h"
 #include "..\EntityManagers\Monster.h"
 #include "..\EntityManagers\Personnage.h"
-#include "..\json.h"
 #include "..\WorldManagers\TileMap.h"
 
 
