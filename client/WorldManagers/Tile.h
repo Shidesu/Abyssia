@@ -27,6 +27,12 @@ enum TileType
 	WATER
 };
 
+struct TileData {
+	unique_ptr<sf::Texture> textures;
+	sf::Sprite sprites;
+
+};
+
 
 class Tile :
 	public Renderable
@@ -50,7 +56,6 @@ protected:
 	TileType type;
 	Position position;
 
-	static std::map<TileType, std::unique_ptr<sf::Texture>> textures;
-	static std::map<TileType, sf::Sprite> sprites;
+	static std::map<TileType, TileData> tiles;
 };
 

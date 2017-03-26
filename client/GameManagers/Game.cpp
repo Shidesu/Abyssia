@@ -117,7 +117,7 @@ int Game::load()
 void Game::test()
 {
 	Franz franz("Franz", "Franzini");
-	cout << "lol";
+	cout << "lol"<< endl;
 	system("pause");
 
 }
