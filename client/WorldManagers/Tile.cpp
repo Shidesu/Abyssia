@@ -10,10 +10,10 @@ void Tile::init()
 	TileType types[] = { DIRT, GRASS, STONE, WATER };
 	int i(0);
 
-	for (auto index = Tile::tiles.begin(); index != tiles.end(); index++, i++) {
-		index->second.textures = make_unique<sf::Texture>(sf::Texture());
-		index->second.textures->loadFromFile("img/" + names[i] + ".png");
-		index->second.sprites = sf::Sprite(*index->second.textures);	
+	for (i; i < 4; i++) {
+		tiles[types[i]].textures = make_unique<sf::Texture>(sf::Texture());
+		tiles[types[i]].textures->loadFromFile("img/" + names[i] + ".png");
+		tiles[types[i]].sprites = sf::Sprite(*tiles[types[i]].textures);
 	}
 	
 }
