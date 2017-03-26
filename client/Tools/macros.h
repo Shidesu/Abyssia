@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "SFML\System.hpp"
+#include "SFML\System.hpp";
 
 typedef sf::Vector2i Position;
 
